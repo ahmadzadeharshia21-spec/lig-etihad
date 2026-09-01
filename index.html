@@ -18,12 +18,7 @@
             --text-muted: #94a3b8;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Vazirmatn', sans-serif;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Vazirmatn', sans-serif; }
 
         body {
             background-color: var(--bg-dark);
@@ -31,413 +26,100 @@
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(0, 255, 135, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.05) 0%, transparent 40%);
+            background-image: radial-gradient(circle at 10% 20%, rgba(0, 255, 135, 0.05) 0%, transparent 40%), radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.05) 0%, transparent 40%);
             background-attachment: fixed;
         }
 
-        header {
-            background: rgba(7, 13, 18, 0.85);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 42px;
-            height: 42px;
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            color: #070d12;
-            box-shadow: 0 0 15px rgba(0, 255, 135, 0.4);
-        }
-
-        .logo-text h1 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            color: #fff;
-            letter-spacing: -0.5px;
-        }
-
-        .logo-text p {
-            font-size: 0.75rem;
-            color: var(--accent-green);
-        }
-
-        .nav-stats {
-            display: flex;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.03);
-            padding: 6px 14px;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            font-size: 0.85rem;
-        }
-
-        .nav-stats span {
-            color: var(--accent-gold);
-            font-weight: bold;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 40px 20px 20px;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-            background: rgba(0, 255, 135, 0.1);
-            color: var(--accent-green);
-            border: 1px solid rgba(0, 255, 135, 0.3);
-            padding: 4px 12px;
-            border-radius: 12px;
-            font-size: 0.8rem;
-            margin-bottom: 12px;
-        }
-
-        .hero h2 {
-            font-size: 2rem;
-            font-weight: 900;
-            margin-bottom: 10px;
-            background: linear-gradient(to right, #fff, var(--text-muted));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero p {
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .controls-wrapper {
-            max-width: 1200px;
-            margin: 20px auto 10px;
-            padding: 0 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            align-items: center;
-        }
-
-        .league-tabs {
-            display: flex;
-            gap: 10px;
-            background: rgba(255, 255, 255, 0.04);
-            padding: 5px;
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-        }
-
-        .tab-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            padding: 8px 22px;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
-            color: #070d12;
-            box-shadow: 0 2px 10px rgba(0, 255, 135, 0.3);
-        }
-
-        .search-box {
-            position: relative;
-            width: 100%;
-            max-width: 450px;
-        }
-
-        .search-box input {
-            width: 100%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 12px 42px 12px 15px;
-            border-radius: 12px;
-            color: #fff;
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .search-box input:focus {
-            border-color: var(--accent-green);
-            box-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .search-box i {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-muted);
-        }
-
-        .teams-container {
-            max-width: 1200px;
-            margin: 20px auto 40px;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            width: 100%;
-        }
-
-        .team-card {
-            background: var(--card-bg);
-            border: 1px solid var(--card-border);
-            border-radius: 16px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-            backdrop-filter: blur(10px);
-        }
-
-        .team-card:hover {
-            transform: translateY(-6px);
-            border-color: var(--accent-green);
-            box-shadow: 0 10px 25px rgba(0, 255, 135, 0.15);
-        }
-
-        .team-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
-        }
-
-        .team-header {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .team-logo {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: var(--accent-green);
-            flex-shrink: 0;
-        }
-
-        .team-title h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 3px;
-        }
-
-        .team-title .manager {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .team-details {
-            background: rgba(0, 0, 0, 0.2);
-            border-radius: 10px;
-            padding: 10px 12px;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            font-size: 0.8rem;
-        }
-
-        .detail-item {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-        }
-
-        .detail-item .label {
-            color: var(--text-muted);
-            font-size: 0.75rem;
-        }
-
-        .detail-item .val {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .stadium-box {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-top: 1px dashed rgba(255, 255, 255, 0.08);
-            padding-top: 10px;
-        }
-
-        .stadium-box i {
-            color: var(--accent-blue);
-        }
-
-        .trophies-box {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 0.8rem;
-        }
-
-        .trophy-tag {
-            background: rgba(255, 215, 0, 0.1);
-            color: var(--accent-gold);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .btn-view-squad {
-            margin-top: auto;
-            background: rgba(255, 255, 255, 0.05);
-            color: #fff;
-            text-align: center;
-            padding: 9px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: all 0.2s ease;
-        }
-
-        .btn-view-squad:hover {
-            background: var(--accent-green);
-            color: #070d12;
-            border-color: var(--accent-green);
-        }
-
-        footer {
-            margin-top: auto;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            text-align: center;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        @media (max-width: 600px) {
-            .nav-stats {
-                display: none;
-            }
-            .teams-container {
-                grid-template-columns: 1fr;
-            }
-        }
+        header { background: rgba(7, 13, 18, 0.85); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255, 255, 255, 0.08); position: sticky; top: 0; z-index: 100; }
+        .header-container { max-width: 1200px; margin: 0 auto; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; }
+        .logo-area { display: flex; align-items: center; gap: 12px; }
+        .logo-icon { width: 42px; height: 42px; background: linear-gradient(135deg, var(--accent-green), var(--accent-blue)); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #070d12; box-shadow: 0 0 15px rgba(0, 255, 135, 0.4); }
+        .logo-text h1 { font-size: 1.3rem; font-weight: 800; color: #fff; letter-spacing: -0.5px; }
+        .logo-text p { font-size: 0.75rem; color: var(--accent-green); }
+        .nav-stats { display: flex; gap: 15px; background: rgba(255, 255, 255, 0.03); padding: 6px 14px; border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.05); font-size: 0.85rem; }
+        .nav-stats span { color: var(--accent-gold); font-weight: bold; }
+        .hero { text-align: center; padding: 40px 20px 20px; max-width: 800px; margin: 0 auto; }
+        .hero-badge { display: inline-block; background: rgba(0, 255, 135, 0.1); color: var(--accent-green); border: 1px solid rgba(0, 255, 135, 0.3); padding: 4px 12px; border-radius: 12px; font-size: 0.8rem; margin-bottom: 12px; }
+        .hero h2 { font-size: 2rem; font-weight: 900; margin-bottom: 10px; background: linear-gradient(to right, #fff, var(--text-muted)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+        .controls-wrapper { max-width: 1200px; margin: 20px auto 10px; padding: 0 20px; display: flex; flex-direction: column; gap: 15px; align-items: center; }
+        .league-tabs { display: flex; gap: 10px; background: rgba(255, 255, 255, 0.04); padding: 5px; border-radius: 30px; border: 1px solid rgba(255, 255, 255, 0.08); }
+        .tab-btn { background: transparent; border: none; color: var(--text-muted); padding: 8px 22px; border-radius: 25px; font-size: 0.9rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; }
+        .tab-btn.active { background: linear-gradient(135deg, var(--accent-green), var(--accent-blue)); color: #070d12; box-shadow: 0 2px 10px rgba(0, 255, 135, 0.3); }
+        .search-box { position: relative; width: 100%; max-width: 450px; }
+        .search-box input { width: 100%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); padding: 12px 42px 12px 15px; border-radius: 12px; color: #fff; font-size: 0.9rem; outline: none; transition: all 0.3s ease; }
+        .search-box input:focus { border-color: var(--accent-green); box-shadow: 0 0 10px rgba(0, 255, 135, 0.2); background: rgba(255, 255, 255, 0.08); }
+        .search-box i { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+        .teams-container { max-width: 1200px; margin: 20px auto 40px; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; width: 100%; }
+        .team-card { background: var(--card-bg); border: 1px solid var(--card-border); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 15px; transition: transform 0.3s ease; backdrop-filter: blur(10px); position: relative; overflow: hidden; }
+        .team-card:hover { transform: translateY(-6px); border-color: var(--accent-green); }
+        .team-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent-green), var(--accent-blue)); }
+        .team-header { display: flex; align-items: center; gap: 15px; }
+        .team-logo-wrap { width: 58px; height: 58px; border-radius: 50%; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.12); display: flex; align-items: center; justify-content: center; padding: 6px; flex-shrink: 0; }
+        .team-logo-wrap img { max-width: 100%; max-height: 100%; object-fit: contain; }
+        .team-title h3 { font-size: 1.15rem; font-weight: 700; color: #fff; }
+        .team-title .manager { font-size: 0.8rem; color: var(--text-muted); margin-top: 3px; }
+        .team-title .manager span { color: var(--accent-green); font-weight: 600; }
+        .team-details { background: rgba(0, 0, 0, 0.25); border-radius: 10px; padding: 12px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 0.8rem; }
+        .detail-item { display: flex; flex-direction: column; gap: 2px; }
+        .detail-item .label { color: var(--text-muted); font-size: 0.75rem; }
+        .detail-item .val { color: var(--text-main); font-weight: 600; }
+        .stadium-box { font-size: 0.8rem; color: var(--text-muted); display: flex; align-items: center; gap: 8px; border-top: 1px dashed rgba(255, 255, 255, 0.08); padding-top: 10px; }
+        .trophy-tag { background: rgba(255, 215, 0, 0.1); color: var(--accent-gold); border: 1px solid rgba(255, 215, 0, 0.25); padding: 3px 10px; border-radius: 8px; font-size: 0.78rem; display: flex; align-items: center; gap: 5px; font-weight: 600; }
+        .btn-view-squad { margin-top: auto; background: rgba(255, 255, 255, 0.05); color: #fff; text-align: center; padding: 10px; border-radius: 8px; text-decoration: none; font-size: 0.85rem; font-weight: 600; border: 1px solid rgba(255, 255, 255, 0.08); transition: all 0.2s ease; }
+        .btn-view-squad:hover { background: var(--accent-green); color: #070d12; }
     </style>
 </head>
 <body>
-
     <header>
         <div class="header-container">
             <div class="logo-area">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>لیگ مجازی اتحاد</h1>
-                    <p>سامانه رسمی مسابقات و باشگاه‌ها</p>
-                </div>
+                <div class="logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                <div class="logo-text"><h1>لیگ مجازی اتحاد</h1><p>سامانه رسمی مسابقات و باشگاه‌ها</p></div>
             </div>
-            <div class="nav-stats">
-                <div>تعداد تیم‌ها: <span id="stat-teams-count">۸</span></div>
-                <div>سیزن‌های برگزارشده: <span>+۶۰۰</span></div>
-            </div>
+            <div class="nav-stats"><div>تعداد تیم‌ها: <span id="stat-teams-count">۸</span></div></div>
         </div>
     </header>
 
     <section class="hero">
         <div class="hero-badge">شعبه رسمی فعال</div>
         <h2>باشگاه‌های لیگ مجازی اتحاد</h2>
-        <p>مشاهده مشخصات باشگاه‌ها، استادیوم اختصاصی، رنگ و اطلاعات فنی</p>
     </section>
 
     <div class="controls-wrapper">
         <div class="league-tabs">
-            <button class="tab-btn active" onclick="switchLeague('pro', this)">لیگ برتر (۸ تیم)</button>
-            <button class="tab-btn" onclick="switchLeague('azadegan', this)">لیگ آزادگان (۸ تیم)</button>
+            <button class="tab-btn active" onclick="switchLeague('pro', this)">لیگ برتر</button>
+            <button class="tab-btn" onclick="switchLeague('azadegan', this)">لیگ آزادگان</button>
         </div>
-
         <div class="search-box">
             <i class="fa-solid fa-magnifying-glass"></i>
-            <input type="text" id="searchInput" onkeyup="filterTeams()" placeholder="جستجوی تیم، رنگ، استادیوم...">
+            <input type="text" id="searchInput" onkeyup="filterTeams()" placeholder="جستجوی تیم...">
         </div>
     </div>
 
     <main class="teams-container" id="teamsList"></main>
 
-    <footer>
-        <p>© تمام حقوق برای لیگ مجازی اتحاد محفوظ است | توسعه یافته برای مدیریت مسابقات و نقل‌وانتقالات</p>
-    </footer>
-
     <script>
         const allLeaguesData = {
             pro: [
-                { name: "استقلال تهران", color: "آبی", stadium: "ورزشگاه آزادی", icon: "fa-shield-halved" },
-                { name: "پرسپولیس تهران", color: "قرمز", stadium: "ورزشگاه آزادی", icon: "fa-fire" },
-                { name: "سپاهان اصفهان", color: "زرد", stadium: "ورزشگاه نقش جهان", icon: "fa-bolt" },
-                { name: "تراکتورسازی تبریز", color: "قرمز", stadium: "ورزشگاه یادگار امام", icon: "fa-dragon" },
-                { name: "گل‌گهر سیرجان", color: "آبی", stadium: "ورزشگاه سردار سلیمانی", icon: "fa-gem" },
-                { name: "فولاد خوزستان", color: "نارنجی", stadium: "ورزشگاه فولاد آرنا", icon: "fa-sun" },
-                { name: "چادرملو اردکان", color: "سفید", stadium: "ورزشگاه شهید نصیری", icon: "fa-mountain" },
-                { name: "فجرسپاسی شیراز", color: "زرد", stadium: "ورزشگاه پارس شیراز", icon: "fa-feather" }
+                { name: "استقلال تهران", color: "آبی", stadium: "ورزشگاه آزادی", manager: "در انتظار انتخاب", trophies: "۹ قهرمانی", avgAge: "۲۶.۸ سال", marketValue: "۱۴.۵ م €", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Esteghlal_Tehran_FC_logo.svg/240px-Esteghlal_Tehran_FC_logo.svg.png" },
+                { name: "پرسپولیس تهران", color: "قرمز", stadium: "ورزشگاه آزادی", manager: "در انتظار انتخاب", trophies: "۱۶ قهرمانی", avgAge: "۲۷.۵ سال", marketValue: "۱۵.۲ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/0/05/FC_Persepolis_logo.png/240px-FC_Persepolis_logo.png" },
+                { name: "سپاهان اصفهان", color: "زرد", stadium: "ورزشگاه نقش جهان", manager: "در انتظار انتخاب", trophies: "۵ قهرمانی", avgAge: "۲۶.۱ سال", marketValue: "۱۲.۸ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/f/f6/Sepahan_FC_logo.png/240px-Sepahan_FC_logo.png" },
+                { name: "تراکتورسازی تبریز", color: "قرمز", stadium: "ورزشگاه یادگار امام", manager: "در انتظار انتخاب", trophies: "۲ جام حذفی", avgAge: "۲۶.۴ سال", marketValue: "۱۱.۹ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/3/36/Tractor_S.C._logo.png/240px-Tractor_S.C._logo.png" },
+                { name: "گل‌گهر سیرجان", color: "آبی", stadium: "ورزشگاه سردار سلیمانی", manager: "در انتظار انتخاب", trophies: "بدون جام", avgAge: "۲۵.۹ سال", marketValue: "۷.۳ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/9/98/Gol_Gohar_Sirjan_FC_logo.png/240px-Gol_Gohar_Sirjan_FC_logo.png" },
+                { name: "فولاد خوزستان", color: "نارنجی", stadium: "ورزشگاه فولاد آرنا", manager: "در انتظار انتخاب", trophies: "۲ قهرمانی", avgAge: "۲۵.۴ سال", marketValue: "۸.۱ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/d/d7/Foolad_Khuzestan_FC_logo.png/240px-Foolad_Khuzestan_FC_logo.png" },
+                { name: "چادرملو اردکان", color: "سفید", stadium: "ورزشگاه شهید نصیری", manager: "در انتظار انتخاب", trophies: "بدون جام", avgAge: "۲۴.۹ سال", marketValue: "۴.۵ م €", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Chadormalu_SC_logo.png/240px-Chadormalu_SC_logo.png" },
+                { name: "فجرسپاسی شیراز", color: "زرد", stadium: "ورزشگاه پارس شیراز", manager: "در انتظار انتخاب", trophies: "۱ جام حذفی", avgAge: "۲۴.۱ سال", marketValue: "۳.۹ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/1/1d/Fajr_Sepasi_Shiraz_FC_logo.png/240px-Fajr_Sepasi_Shiraz_FC_logo.png" }
             ],
             azadegan: [
-                { name: "نساجی مازندران", color: "قرمز", stadium: "ورزشگاه شهید وطنی", icon: "fa-crown" },
-                { name: "ملوان بندرانزلی", color: "سفید", stadium: "ورزشگاه سیروس قایقران", icon: "fa-anchor" },
-                { name: "استقلال خوزستان", color: "آبی", stadium: "ورزشگاه غدیر", icon: "fa-shield" },
-                { name: "پیکان تهران", color: "سبز فیروزه‌ای", stadium: "ورزشگاه شهر قدس", icon: "fa-meteor" },
-                { name: "خیبر خرم‌آباد", color: "سبز پررنگ", stadium: "ورزشگاه تختی", icon: "fa-chess-knight" },
-                { name: "شمس آذر قزوین", color: "سبز", stadium: "ورزشگاه سردار آزادگان", icon: "fa-crosshairs" },
-                { name: "آلومینیوم اراک", color: "سبز", stadium: "ورزشگاه امام خمینی", icon: "fa-award" },
-                { name: "ذوب‌آهن اصفهان", color: "سبز", stadium: "ورزشگاه فولادشهر", icon: "fa-wind" }
+                { name: "نساجی مازندران", color: "قرمز", stadium: "ورزشگاه شهید وطنی", manager: "در انتظار انتخاب", trophies: "۱ جام حذفی", avgAge: "۲۶.۰ سال", marketValue: "۵.۸ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/d/d4/Nassaji_FC_logo.png/240px-Nassaji_FC_logo.png" },
+                { name: "ملوان بندرانزلی", color: "سفید", stadium: "ورزشگاه سیروس قایقران", manager: "در انتظار انتخاب", trophies: "۳ جام حذفی", avgAge: "۲۴.۸ سال", marketValue: "۶.۴ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/2/25/Malavan_FC_logo.png/240px-Malavan_FC_logo.png" },
+                { name: "استقلال خوزستان", color: "آبی", stadium: "ورزشگاه غدیر", manager: "در انتظار انتخاب", trophies: "۱ قهرمانی لیگ", avgAge: "۲۵.۲ سال", marketValue: "۵.۰ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/9/90/Esteghlal_Khuzestan_FC_logo.png/240px-Esteghlal_Khuzestan_FC_logo.png" },
+                { name: "پیکان تهران", color: "سبز فیروزه‌ای", stadium: "ورزشگاه شهر قدس", manager: "در انتظار انتخاب", trophies: "۱ لیگ ۱", avgAge: "۲۳.۹ سال", marketValue: "۴.۲ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/5/52/Paykan_FC_logo.png/240px-Paykan_FC_logo.png" },
+                { name: "خیبر خرم‌آباد", color: "سبز پررنگ", stadium: "ورزشگاه تختی", manager: "در انتظار انتخاب", trophies: "۱ آزادگان", avgAge: "۲۵.۱ سال", marketValue: "۴.۰ م €", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Kheybar_Khorramabad_FC_logo.png/240px-Kheybar_Khorramabad_FC_logo.png" },
+                { name: "شمس آذر قزوین", color: "سبز", stadium: "ورزشگاه سردار آزادگان", manager: "در انتظار انتخاب", trophies: "۱ آزادگان", avgAge: "۲۴.۴ سال", marketValue: "۴.۶ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/a/ab/Shams_Azar_Qazvin_FC_logo.png/240px-Shams_Azar_Qazvin_FC_logo.png" },
+                { name: "آلومینیوم اراک", color: "سبز", stadium: "ورزشگاه امام خمینی", manager: "در انتظار انتخاب", trophies: "نایب قهرمان", avgAge: "۲۵.۷ سال", marketValue: "۵.۲ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/0/07/Aluminium_Arak_FC_logo.png/240px-Aluminium_Arak_FC_logo.png" },
+                { name: "ذوب‌آهن اصفهان", color: "سبز", stadium: "ورزشگاه فولادشهر", manager: "در انتظار انتخاب", trophies: "۴ جام حذفی", avgAge: "۲۶.۵ سال", marketValue: "۵.۶ م €", logo: "https://upload.wikimedia.org/wikipedia/fa/thumb/1/10/Zob_Ahan_Esfahan_FC_logo.png/240px-Zob_Ahan_Esfahan_FC_logo.png" }
             ]
         };
 
@@ -446,71 +128,40 @@
         function renderTeams() {
             const container = document.getElementById('teamsList');
             container.innerHTML = '';
-            const teams = allLeaguesData[currentActiveLeague];
-            document.getElementById('stat-teams-count').innerText = teams.length;
-
-            teams.forEach(team => {
+            allLeaguesData[currentActiveLeague].forEach(team => {
                 const card = document.createElement('div');
                 card.className = 'team-card';
                 card.innerHTML = `
                     <div class="team-header">
-                        <div class="team-logo">
-                            <i class="fa-solid ${team.icon}"></i>
-                        </div>
-                        <div class="team-title">
-                            <h3>${team.name}</h3>
-                            <div class="manager">مربی: در انتظار انتخاب</div>
-                        </div>
+                        <div class="team-logo-wrap"><img src="${team.logo}" alt="${team.name}" onerror="this.src='https://cdn-icons-png.flaticon.com/512/1165/1165187.png';"></div>
+                        <div class="team-title"><h3>${team.name}</h3><div class="manager">مدیرعامل: <span>${team.manager}</span></div></div>
                     </div>
                     <div class="team-details">
-                        <div class="detail-item">
-                            <span class="label">رنگ سازمانی</span>
-                            <span class="val">${team.color}</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="label">وضعیت ترکیب</span>
-                            <span class="val">آماده تکمیل</span>
-                        </div>
+                        <div class="detail-item"><span class="label">میانگین سنی</span><span class="val">${team.avgAge}</span></div>
+                        <div class="detail-item"><span class="label">ارزش تیم</span><span class="val">${team.marketValue}</span></div>
                     </div>
-                    <div class="stadium-box">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <span>${team.stadium}</span>
-                    </div>
-                    <div class="trophies-box">
-                        <div class="trophy-tag">
-                            <i class="fa-solid fa-trophy"></i>
-                            <span>تیم رسمی لیگ</span>
-                        </div>
-                    </div>
-                    <a href="#" class="btn-view-squad" onclick="alert('لیست بازیکنان ${team.name} به زودی ثبت می‌شود'); return false;">مشاهده لیست</a>
+                    <div class="stadium-box"><i class="fa-solid fa-location-dot"></i><span>${team.stadium}</span></div>
+                    <div class="trophy-tag"><i class="fa-solid fa-trophy"></i><span>${team.trophies}</span></div>
+                    <a href="#" class="btn-view-squad" onclick="alert('لیست بازیکنان ${team.name} در بروزرسانی بعدی اضافه می‌شود'); return false;">مشاهده ترکیب</a>
                 `;
                 container.appendChild(card);
             });
+            document.getElementById('stat-teams-count').innerText = allLeaguesData[currentActiveLeague].length;
         }
 
         function switchLeague(leagueKey, btnElement) {
             currentActiveLeague = leagueKey;
             document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
             btnElement.classList.add('active');
-            document.getElementById('searchInput').value = '';
             renderTeams();
         }
 
         function filterTeams() {
-            const input = document.getElementById('searchInput').value.toLowerCase().trim();
-            const cards = document.querySelectorAll('.team-card');
-
-            cards.forEach(card => {
-                const text = card.innerText.toLowerCase();
-                if (text.includes(input)) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            document.querySelectorAll('.team-card').forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(input) ? 'flex' : 'none';
             });
         }
-
-        // اجرای اولیه هنگام لود سایت
         window.onload = renderTeams;
     </script>
 </body>
