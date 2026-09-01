@@ -1,40 +1,55 @@
-<!DOCTYPE html>
+:root {<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پورتال جامع لیگ مجازی اتحاد | Etehad Virtual League</title>
-    <!-- Vazirmatn Font & FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+    <title>لیگ مجازی اتحاد</title>
     <style>
-        :root {
-            ات زیر برات آماده کردم:
-- 🏆 **سیستم ویترین جام‌ها (Trophy Room به سبک ترانسفرمارکت):** بج‌های تفکیک‌شده و طلایی برای لیگ برتر، آسیا، جام حذفی و سوپرجام با تعداد مشخص.
-- 🗂 **تب‌بندی و فیلتر دسته‌ها:** امکان جابه‌جایی سریع بین «همه تیم‌ها»، «لیگ برتر» و «لیگ آزادگان» با یک کلیک.
-- 🔍 **جستجوی هوشمند:** پیدا کردن سریع تیم بر اساس نام یا ورزشگاه.
-- 🎨 **طراحی نئونی و دارک شیشه‌ای:** استایل متناسب با رنگ اصلی هر تیم و لوگوهای رسمی باکیفیت.
-- 👥 **مودال پنجرهٔ لیست بازیکنان:** آماده برای متصل شدن به دیتابیس ۴۰۰ بازیکن.
+        body { background-color: #0f172a; color: white; font-family: Tahoma, sans-serif; margin: 0; padding: 20px; }
+        .header { text-align: center; margin-bottom: 30px; }
+        .search-box { width: 100%; max-width: 500px; padding: 15px; border-radius: 12px; background: rgba(255, 255, 255, 0.1); border: 1px solid #334155; color: white; margin: 0 auto 20px; display: block; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; }
+        .card { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 15px; border: 1px solid #334155; }
+        .badge { background: #eab308; color: black; padding: 4px 10px; border-radius: 6px; font-weight: bold; margin-left: 5px; font-size: 0.9em; }
+    </style>
+</head>
+<body>
 
----
+<div class="header">
+    <h1>لیگ مجازی اتحاد</h1>
+    <input type="text" id="searchInput" class="search-box" placeholder="جستجوی تیم...">
+</div>
 
-### کدهای فایل `index.html`
+<div class="grid" id="teamContainer"></div>
 
-این کدهای کامل رو کپی کن و جایگزین فایل `index.html` گوشیت کن:
-```html
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>پورتال جامع لیگ مجازی اتحاد | Etehad Virtual League</title>
-<!-- Vazirmatn Font & FontAwesome Icons -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<script>
+    const teams = [
+        { name: "پرسپولیس", stadium: "آزادی", league: "لیگ برتر", cups: 5 },
+        { name: "استقلال", stadium: "آزادی", league: "لیگ برتر", cups: 4 },
+        { name: "سپاهان", stadium: "نقش جهان", league: "لیگ برتر", cups: 3 }
+    ];
 
-<style>
-:root {
+    function renderTeams(filter = "") {
+        const container = document.getElementById('teamContainer');
+        container.innerHTML = "";
+        teams.filter(t => t.name.includes(filter)).forEach(t => {
+            container.innerHTML += `
+                <div class="card">
+                    <h2>${t.name}</h2>
+                    <p>استادیوم: ${t.stadium}</p>
+                    <p>لیگ: ${t.league}</p>
+                    <span class="badge">🏆 ${t.cups} قهرمانی</span>
+                </div>
+            `;
+        });
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => renderTeams(e.target.value));
+    renderTeams();
+</script>
+</body>
+</html>
+
 blur(12px);
 border-bottom: 1px solid var(--border-card);
 position: sticky;
