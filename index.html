@@ -3,255 +3,515 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لیگ مجازی اتحاد | مرجع رسمی مسابقات</title>
+    <title>لیگ مجازی اتحاد | مرجع رسمی مسابقات و ترنسفر</title>
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
             --bg-dark: #070d12;
-            --card-bg: rgba(14, 25, 36, 0.85);
-            --card-border: rgba(255, 255, 255, 0.1);
+            --card-bg: rgba(14, 25, 36, 0.75);
+            --card-border: rgba(46, 204, 113, 0.25);
+            --accent-green: #00ff87;
+            --accent-gold: #ffd700;
+            --accent-blue: #00b4d8;
             --text-main: #f0f4f8;
             --text-muted: #94a3b8;
-            --accent-gold: #ffd700;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
         }
 
         body {
             background-color: var(--bg-dark);
             color: var(--text-main);
-            font-family: 'Tahoma', sans-serif;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 135, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(0, 180, 216, 0.05) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        header {
+            background: rgba(7, 13, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #070d12;
+            box-shadow: 0 0 15px rgba(0, 255, 135, 0.4);
+        }
+
+        .logo-text h1 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text p {
+            font-size: 0.75rem;
+            color: var(--accent-green);
+        }
+
+        .nav-stats {
+            display: flex;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 6px 14px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 0.85rem;
+        }
+
+        .nav-stats span {
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 40px 20px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(0, 255, 135, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 12px;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+            background: linear-gradient(to right, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
-        /* Header Styles */
-        header {
-            background: rgba(7, 13, 18, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 20px;
-            text-align: center;
-            border-bottom: 2px solid var(--accent-gold);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo-text {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: var(--accent-gold);
-            margin: 0;
-        }
-
-        /* League Switcher (Tabs) */
-        .league-switcher {
+        .controls-wrapper {
+            max-width: 1200px;
+            margin: 20px auto 10px;
+            padding: 0 20px;
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             gap: 15px;
-            margin: 25px 0;
+            align-items: center;
+        }
+
+        .league-tabs {
+            display: flex;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 5px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .tab-btn {
-            background: #1e293b;
-            color: white;
-            border: 1px solid #334155;
-            padding: 10px 25px;
-            border-radius: 30px;
+            background: transparent;
+            border: none;
+            color: var(--text-muted);
+            padding: 8px 22px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 700;
             cursor: pointer;
-            font-size: 1rem;
-            transition: 0.3s;
+            transition: all 0.3s ease;
         }
 
         .tab-btn.active {
-            background: var(--accent-gold);
-            color: #000;
-            font-weight: bold;
-            border-color: var(--accent-gold);
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            color: #070d12;
+            box-shadow: 0 2px 10px rgba(0, 255, 135, 0.3);
         }
 
-        .container {
-            max-width: 1200px;
-            margin: auto;
-            padding: 20px;
-        }
-
-        /* Search Bar */
         .search-box {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        #searchInput {
+            position: relative;
             width: 100%;
-            max-width: 500px;
-            padding: 12px 20px;
-            border-radius: 25px;
-            border: 1px solid #334155;
-            background: #1e293b;
-            color: white;
-            outline: none;
+            max-width: 450px;
         }
 
-        /* Grid Layout */
-        .teams-grid {
+        .search-box input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 42px 12px 15px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-green);
+            box-shadow: 0 0 10px rgba(0, 255, 135, 0.2);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .teams-container {
+            max-width: 1200px;
+            margin: 20px auto 40px;
+            padding: 0 20px;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
+            gap: 20px;
+            width: 100%;
         }
 
-        /* Team Card Styles */
         .team-card {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            border-radius: 15px;
-            overflow: hidden;
-            transition: transform 0.3s, border-color 0.3s;
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
             position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
         }
 
         .team-card:hover {
-            transform: translateY(-8px);
-            border-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-6px);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 25px rgba(0, 255, 135, 0.15);
         }
 
-        /* The Dynamic Color Strip */
-        .color-strip {
-            height: 5px;
+        .team-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-        }
-
-        .card-content {
-            padding: 20px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-green), var(--accent-blue));
         }
 
         .team-header {
             display: flex;
             align-items: center;
             gap: 15px;
-            margin-bottom: 15px;
         }
 
         .team-logo {
             width: 55px;
             height: 55px;
-            background: #1e293b;
             border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            color: var(--accent-gold);
+            font-size: 24px;
+            color: var(--accent-green);
+            flex-shrink: 0;
         }
 
         .team-title h3 {
-            margin: 0;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 3px;
         }
 
-        .manager {
-            font-size: 0.85rem;
+        .team-title .manager {
+            font-size: 0.8rem;
             color: var(--text-muted);
-        }
-
-        .stadium-box {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .team-details {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 10px 12px;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 10px;
-            margin-bottom: 15px;
-            padding: 10px 0;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.8rem;
         }
 
         .detail-item {
-            font-size: 0.8rem;
             display: flex;
             flex-direction: column;
+            gap: 2px;
         }
 
-        .detail-item .label { color: var(--text-muted); }
-        .detail-item .val { color: white; font-weight: bold; }
+        .detail-item .label {
+            color: var(--text-muted);
+            font-size: 0.75rem;
+        }
 
-        /* Trophy Badges (Transfermarkt Style) */
-        .trophies-container {
+        .detail-item .val {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .stadium-box {
+            font-size: 0.8rem;
+            color: var(--text-muted);
             display: flex;
-            flex-wrap: wrap;
+            align-items: center;
             gap: 8px;
-            margin-top: 10px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.08);
+            padding-top: 10px;
         }
 
-        .trophy-badge {
+        .stadium-box i {
+            color: var(--accent-blue);
+        }
+
+        .trophies-box {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+        }
+
+        .trophy-tag {
             background: rgba(255, 215, 0, 0.1);
+            color: var(--accent-gold);
             border: 1px solid rgba(255, 215, 0, 0.2);
-            padding: 4px 8px;
+            padding: 2px 8px;
             border-radius: 6px;
             font-size: 0.75rem;
             display: flex;
             align-items: center;
             gap: 4px;
-            color: var(--accent-gold);
+        }
+
+        .btn-view-squad {
+            margin-top: auto;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            text-align: center;
+            padding: 9px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.2s ease;
+        }
+
+        .btn-view-squad:hover {
+            background: var(--accent-green);
+            color: #070d12;
+            border-color: var(--accent-green);
         }
 
         footer {
+            margin-top: auto;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 20px;
             text-align: center;
-            padding: 40px;
+            font-size: 0.8rem;
             color: var(--text-muted);
-            font-size: 0.9rem;
         }
 
         @media (max-width: 600px) {
-            .teams-grid { grid-template-columns: 1fr; }
-            .logo-text { font-size: 1.4rem; }
+            .nav-stats {
+                display: none;
+            }
+            .teams-container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
 
-<header>
-    <h1 class="logo-text">⚽ لیگ مجازی اتحاد</h1>
-    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 5px 0 0;">مرجع رسمی مسابقات و انتقال‌ها</p>
-</header>
+    <header>
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>لیگ مجازی اتحاد</h1>
+                    <p>سامانه رسمی مسابقات و باشگاه‌ها</p>
+                </div>
+            </div>
+            <div class="nav-stats">
+                <div>تعداد تیم‌ها: <span id="stat-teams-count">۸</span></div>
+                <div>سیزن‌های برگزارشده: <span>+۶۰۰</span></div>
+            </div>
+        </div>
+    </header>
 
-<div class="container">
-    <div class="league-switcher">
-        <button class="tab-btn active" onclick="switchLeague('premier', this)">لیگ برتر</button>
-        <button class="tab-btn" onclick="switchLeague('azadegan', this)">لیگ آزادگان</button>
+    <section class="hero">
+        <div class="hero-badge">شعبه رسمی فعال</div>
+        <h2>باشگاه‌های لیگ مجازی اتحاد</h2>
+        <p>مشاهده مشخصات باشگاه‌ها، استادیوم اختصاصی، رنگ و اطلاعات فنی</p>
+    </section>
+
+    <div class="controls-wrapper">
+        <div class="league-tabs">
+            <button class="tab-btn active" onclick="switchLeague('pro', this)">لیگ برتر (۸ تیم)</button>
+            <button class="tab-btn" onclick="switchLeague('azadegan', this)">لیگ آزادگان (۸ تیم)</button>
+        </div>
+
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" onkeyup="filterTeams()" placeholder="جستجوی تیم، رنگ، استادیوم...">
+        </div>
     </div>
 
-    <div class="search-box">
-        <input type="text" id="searchInput" placeholder="جستجوی نام تیم..." onkeyup="filterTeams()">
-    </div>
+    <main class="teams-container" id="teamsList"></main>
 
-    <div class="teams-grid" id="teamsGrid">
-        <!-- Teams will be injected here by JavaScript -->
-    </div>
-</div>
+    <footer>
+        <p>© تمام حقوق برای لیگ مجازی اتحاد محفوظ است | توسعه یافته برای مدیریت مسابقات و نقل‌وانتقالات</p>
+    </footer>
 
-<footer>
-    &copy; 2026 لیگ مجازی اتحاد | تمامی حقوق محفوظ است
-</footer>
+    <script>
+        const allLeaguesData = {
+            pro: [
+                { name: "استقلال تهران", color: "آبی", stadium: "ورزشگاه آزادی", icon: "fa-shield-halved" },
+                { name: "پرسپولیس تهران", color: "قرمز", stadium: "ورزشگاه آزادی", icon: "fa-fire" },
+                { name: "سپاهان اصفهان", color: "زرد", stadium: "ورزشگاه نقش جهان", icon: "fa-bolt" },
+                { name: "تراکتورسازی تبریز", color: "قرمز", stadium: "ورزشگاه یادگار امام", icon: "fa-dragon" },
+                { name: "گل‌گهر سیرجان", color: "آبی", stadium: "ورزشگاه سردار سلیمانی", icon: "fa-gem" },
+                { name: "فولاد خوزستان", color: "نارنجی", stadium: "ورزشگاه فولاد آرنا", icon: "fa-sun" },
+                { name: "چادرملو اردکان", color: "سفید", stadium: "ورزشگاه شهید نصیری", icon: "fa-mountain" },
+                { name: "فجرسپاسی شیراز", color: "زرد", stadium: "ورزشگاه پارس شیراز", icon: "fa-feather" }
+            ],
+            azadegan: [
+                { name: "نساجی مازندران", color: "قرمز", stadium: "ورزشگاه شهید وطنی", icon: "fa-crown" },
+                { name: "ملوان بندرانزلی", color: "سفید", stadium: "ورزشگاه سیروس قایقران", icon: "fa-anchor" },
+                { name: "استقلال خوزستان", color: "آبی", stadium: "ورزشگاه غدیر", icon: "fa-shield" },
+                { name: "پیکان تهران", color: "سبز فیروزه‌ای", stadium: "ورزشگاه شهر قدس", icon: "fa-meteor" },
+                { name: "خیبر خرم‌آباد", color: "سبز پررنگ", stadium: "ورزشگاه تختی", icon: "fa-chess-knight" },
+                { name: "شمس آذر قزوین", color: "سبز", stadium: "ورزشگاه سردار آزادگان", icon: "fa-crosshairs" },
+                { name: "آلومینیوم اراک", color: "سبز", stadium: "ورزشگاه امام خمینی", icon: "fa-award" },
+                { name: "ذوب‌آهن اصفهان", color: "سبز", stadium: "ورزشگاه فولادشهر", icon: "fa-wind" }
+            ]
+        };
 
-<script>
-    const teamsData = {
-        premier: [
-            { name: "استقلال تهران", manager: "-", stadium: "آزادی", color: "#0047ab", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 3}, {n: "سوپرجام", v: 2}, {n: "جام حذفی", v: 1}] },
-            { name: "پرسپولیس تهران", manager: "-", stadium: "آزادی", color: "#e30022", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 2}, {n: "آسیا", v: 2}, {n: "سوپرجام", v: 1}] },
-            { name: "سپاهان اصفهان", manager: "-", stadium: "نقش جهان", color: "#ffd700", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}, {n: "سوپرجام", v: 1}] },
-            { name: "تراکتورسازی تبریز", manager: "-", stadium: "یادگار امام", color: "#e30022", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}, {n: "آسیا", v: 2}, {n: "جام حذفی", v: 3}, {n: "جام", v: 2}] },
-            { name: "گلگهر سیرجان", manager: "-", stadium: "سردار سلیمانی", color: "#0047ab", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}, {n: "جام حذفی", v: 3}, {n: "سوپرجام", v: 3}] },
-            { name: "فولاد خوزستان", manager: "-", stadium: "فولاد آرنا", color: "#ff8c00", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}] },
-            { name: "چادرملو اردکان", manager: "-", stadium: "شهید نصیری", color: "#ffffff", icon: "fa-shield", trophies: [{n: "جام حذفی", v: 1}] },
-            { name: "فجرسپاسی شیراز", manager: "-", stadium: "پارس شیراز", color: "#ffd700", icon: "fa-shield", trophies: [] }
-        ],
-        azadegan: [
-            { name: "نساجی مازندران", manager: "-", stadium: "شهید وطنی", color: "#e30022", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}] },
-            {
+        let currentActiveLeague = 'pro';
+
+        function renderTeams() {
+            const container = document.getElementById('teamsList');
+            container.innerHTML = '';
+            const teams = allLeaguesData[currentActiveLeague];
+            document.getElementById('stat-teams-count').innerText = teams.length;
+
+            teams.forEach(team => {
+                const card = document.createElement('div');
+                card.className = 'team-card';
+                card.innerHTML = `
+                    <div class="team-header">
+                        <div class="team-logo">
+                            <i class="fa-solid ${team.icon}"></i>
+                        </div>
+                        <div class="team-title">
+                            <h3>${team.name}</h3>
+                            <div class="manager">مربی: در انتظار انتخاب</div>
+                        </div>
+                    </div>
+                    <div class="team-details">
+                        <div class="detail-item">
+                            <span class="label">رنگ سازمانی</span>
+                            <span class="val">${team.color}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="label">وضعیت ترکیب</span>
+                            <span class="val">آماده تکمیل</span>
+                        </div>
+                    </div>
+                    <div class="stadium-box">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <span>${team.stadium}</span>
+                    </div>
+                    <div class="trophies-box">
+                        <div class="trophy-tag">
+                            <i class="fa-solid fa-trophy"></i>
+                            <span>تیم رسمی لیگ</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-view-squad" onclick="alert('لیست بازیکنان ${team.name} به زودی ثبت می‌شود'); return false;">مشاهده لیست</a>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function switchLeague(leagueKey, btnElement) {
+            currentActiveLeague = leagueKey;
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            btnElement.classList.add('active');
+            document.getElementById('searchInput').value = '';
+            renderTeams();
+        }
+
+        function filterTeams() {
+            const input = document.getElementById('searchInput').value.toLowerCase().trim();
+            const cards = document.querySelectorAll('.team-card');
+
+            cards.forEach(card => {
+                const text = card.innerText.toLowerCase();
+                if (text.includes(input)) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // اجرای اولیه هنگام لود سایت
+        window.onload = renderTeams;
+    </script>
+</body>
+</html>
