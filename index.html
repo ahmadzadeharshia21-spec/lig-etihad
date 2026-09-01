@@ -3,29 +3,255 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>لیگ مجازی اتحاد</title>
+    <title>لیگ مجازی اتحاد | مرجع رسمی مسابقات</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        body { background-color: #0f172a; color: white; font-family: Tahoma, sans-serif; margin: 0; padding: 20px; text-align: center; }
-        .card { background: rgba(255, 255, 255, 0.1); padding: 20px; border-radius: 15px; border: 1px solid #334155; margin: 10px auto; max-width: 300px; }
-        h2 { margin: 0; color: #eab308; }
+        :root {
+            --bg-dark: #070d12;
+            --card-bg: rgba(14, 25, 36, 0.85);
+            --card-border: rgba(255, 255, 255, 0.1);
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+            --accent-gold: #ffd700;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Tahoma', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(7, 13, 18, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid var(--accent-gold);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent-gold);
+            margin: 0;
+        }
+
+        /* League Switcher (Tabs) */
+        .league-switcher {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .tab-btn {
+            background: #1e293b;
+            color: white;
+            border: 1px solid #334155;
+            padding: 10px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: 0.3s;
+        }
+
+        .tab-btn.active {
+            background: var(--accent-gold);
+            color: #000;
+            font-weight: bold;
+            border-color: var(--accent-gold);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        /* Search Bar */
+        .search-box {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        #searchInput {
+            width: 100%;
+            max-width: 500px;
+            padding: 12px 20px;
+            border-radius: 25px;
+            border: 1px solid #334155;
+            background: #1e293b;
+            color: white;
+            outline: none;
+        }
+
+        /* Grid Layout */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        /* Team Card Styles */
+        .team-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+            position: relative;
+        }
+
+        .team-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* The Dynamic Color Strip */
+        .color-strip {
+            height: 5px;
+            width: 100%;
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .team-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .team-logo {
+            width: 55px;
+            height: 55px;
+            background: #1e293b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+
+        .team-title h3 {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+
+        .manager {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .stadium-box {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .team-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+            padding: 10px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .detail-item {
+            font-size: 0.8rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .detail-item .label { color: var(--text-muted); }
+        .detail-item .val { color: white; font-weight: bold; }
+
+        /* Trophy Badges (Transfermarkt Style) */
+        .trophies-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .trophy-badge {
+            background: rgba(255, 215, 0, 0.1);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--accent-gold);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            .teams-grid { grid-template-columns: 1fr; }
+            .logo-text { font-size: 1.4rem; }
+        }
     </style>
 </head>
 <body>
 
-    <h1>لیگ مجازی اتحاد</h1>
-    
-    <!-- این بخش کارت‌های تیم هست -->
-    <div class="card">
-        <h2>پرسپولیس</h2>
-        <p>استادیوم: آزادی</p>
-        <p>🏆 ۵ قهرمانی</p>
+<header>
+    <h1 class="logo-text">⚽ لیگ مجازی اتحاد</h1>
+    <p style="font-size: 0.8rem; color: var(--text-muted); margin: 5px 0 0;">مرجع رسمی مسابقات و انتقال‌ها</p>
+</header>
+
+<div class="container">
+    <div class="league-switcher">
+        <button class="tab-btn active" onclick="switchLeague('premier', this)">لیگ برتر</button>
+        <button class="tab-btn" onclick="switchLeague('azadegan', this)">لیگ آزادگان</button>
     </div>
 
-    <div class="card">
-        <h2>استقلال</h2>
-        <p>استادیوم: آزادی</p>
-        <p>🏆 ۴ قهرمانی</p>
+    <div class="search-box">
+        <input type="text" id="searchInput" placeholder="جستجوی نام تیم..." onkeyup="filterTeams()">
     </div>
 
-</body>
-</html>
+    <div class="teams-grid" id="teamsGrid">
+        <!-- Teams will be injected here by JavaScript -->
+    </div>
+</div>
+
+<footer>
+    &copy; 2026 لیگ مجازی اتحاد | تمامی حقوق محفوظ است
+</footer>
+
+<script>
+    const teamsData = {
+        premier: [
+            { name: "استقلال تهران", manager: "-", stadium: "آزادی", color: "#0047ab", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 3}, {n: "سوپرجام", v: 2}, {n: "جام حذفی", v: 1}] },
+            { name: "پرسپولیس تهران", manager: "-", stadium: "آزادی", color: "#e30022", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 2}, {n: "آسیا", v: 2}, {n: "سوپرجام", v: 1}] },
+            { name: "سپاهان اصفهان", manager: "-", stadium: "نقش جهان", color: "#ffd700", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}, {n: "سوپرجام", v: 1}] },
+            { name: "تراکتورسازی تبریز", manager: "-", stadium: "یادگار امام", color: "#e30022", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}, {n: "آسیا", v: 2}, {n: "جام حذفی", v: 3}, {n: "جام", v: 2}] },
+            { name: "گلگهر سیرجان", manager: "-", stadium: "سردار سلیمانی", color: "#0047ab", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}, {n: "جام حذفی", v: 3}, {n: "سوپرجام", v: 3}] },
+            { name: "فولاد خوزستان", manager: "-", stadium: "فولاد آرنا", color: "#ff8c00", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}] },
+            { name: "چادرملو اردکان", manager: "-", stadium: "شهید نصیری", color: "#ffffff", icon: "fa-shield", trophies: [{n: "جام حذفی", v: 1}] },
+            { name: "فجرسپاسی شیراز", manager: "-", stadium: "پارس شیراز", color: "#ffd700", icon: "fa-shield", trophies: [] }
+        ],
+        azadegan: [
+            { name: "نساجی مازندران", manager: "-", stadium: "شهید وطنی", color: "#e30022", icon: "fa-shield", trophies: [{n: "لیگ برتر", v: 1}] },
+            {
