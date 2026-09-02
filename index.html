@@ -923,3 +923,820 @@
     </script>
 </body>
 </html>
+
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>پورتال رسمی لیگ مجازی اتحاد | شعب و مسابقات</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-dark: #070d12;
+            --bg-secondary: #0c1722;
+            --card-bg: rgba(14, 25, 36, 0.75);
+            --card-border: rgba(46, 204, 113, 0.25);
+            --accent-green: #00ff87;
+            --accent-gold: #ffd700;
+            --accent-blue: #00b4d8;
+            --accent-rubika: #8c52ff;
+            --accent-bazaar: #38a169;
+            --text-main: #f0f4f8;
+            --text-muted: #94a3b8;
+            --glow: 0 0 15px rgba(0, 255, 135, 0.35);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Vazirmatn', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-image: 
+                radial-gradient(circle at 15% 20%, rgba(0, 255, 135, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 85% 80%, rgba(0, 180, 216, 0.04) 0%, transparent 40%);
+            background-attachment: fixed;
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(7, 13, 18, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .header-container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .logo-icon {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #051017;
+            font-size: 22px;
+            box-shadow: var(--glow);
+        }
+
+        .logo-text h1 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            background: linear-gradient(90deg, #fff, var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-text p {
+            font-size: 0.72rem;
+            color: var(--accent-green);
+            letter-spacing: 0.5px;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .btn-rubika, .btn-bazaar {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 14px;
+            border-radius: 10px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.25s ease;
+        }
+
+        .btn-rubika {
+            background: rgba(140, 82, 255, 0.15);
+            color: #d6bcfa;
+            border: 1px solid rgba(140, 82, 255, 0.4);
+        }
+
+        .btn-rubika:hover {
+            background: rgba(140, 82, 255, 0.35);
+            box-shadow: 0 0 12px rgba(140, 82, 255, 0.4);
+            transform: translateY(-1px);
+        }
+
+        .btn-bazaar {
+            background: rgba(0, 255, 135, 0.15);
+            color: var(--accent-green);
+            border: 1px solid rgba(0, 255, 135, 0.4);
+        }
+
+        .btn-bazaar:hover {
+            background: rgba(0, 255, 135, 0.3);
+            box-shadow: var(--glow);
+            transform: translateY(-1px);
+        }
+
+        /* HERO & PROMO BANNER */
+        .hero {
+            text-align: center;
+            padding: 35px 20px 20px;
+            position: relative;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 255, 135, 0.1);
+            color: var(--accent-green);
+            padding: 6px 14px;
+            border-radius: 50px;
+            font-size: 0.78rem;
+            font-weight: 700;
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            margin-bottom: 12px;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+            font-weight: 900;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, var(--text-main), var(--accent-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* APP PROMO CARD */
+        .app-promo-card {
+            max-width: 1200px;
+            margin: 10px auto 25px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .app-banner {
+            background: linear-gradient(135deg, rgba(14, 25, 36, 0.9), rgba(20, 36, 52, 0.9));
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 15px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .app-banner-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .app-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, #10b981, #047857);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .app-banner-info h4 {
+            font-size: 0.98rem;
+            color: #fff;
+            margin-bottom: 3px;
+        }
+
+        .app-banner-info p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        .app-banner-btn {
+            background: var(--accent-green);
+            color: #070d12;
+            padding: 8px 18px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+            font-weight: 800;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+        }
+
+        .app-banner-btn:hover {
+            transform: scale(1.03);
+            box-shadow: var(--glow);
+        }
+
+        /* CONTROLS */
+        .controls-wrapper {
+            max-width: 1200px;
+            margin: 0 auto 25px;
+            padding: 0 20px;
+            width: 100%;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 12px 42px 12px 16px;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--accent-green);
+            box-shadow: var(--glow);
+        }
+
+        .search-box i {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        /* BRANCHES GRID */
+        .branches-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+        }
+
+        .branch-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(6px);
+        }
+
+        .branch-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent-green), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .branch-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), var(--glow);
+        }
+
+        .branch-card:hover::before {
+            opacity: 1;
+        }
+
+        .branch-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 14px;
+        }
+
+        .branch-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--accent-green);
+        }
+
+        .branch-title h3 {
+            font-size: 1.05rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 2px;
+        }
+
+        .branch-title .tag {
+            font-size: 0.7rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .branch-desc {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 15px;
+            flex-grow: 1;
+        }
+
+        .branch-subs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 16px;
+        }
+
+        .sub-badge {
+            background: rgba(255, 255, 255, 0.05);
+            color: #cbd5e1;
+            font-size: 0.72rem;
+            padding: 3px 8px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .branch-footer {
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding-top: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .status-tag {
+            font-size: 0.75rem;
+            color: var(--accent-green);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .btn-enter {
+            background: rgba(0, 255, 135, 0.1);
+            color: var(--accent-green);
+            border: 1px solid rgba(0, 255, 135, 0.3);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-enter:hover {
+            background: var(--accent-green);
+            color: #070d12;
+        }
+
+        /* FOOTER */
+        footer {
+            margin-top: auto;
+            background: var(--bg-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-note {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        @media (max-width: 600px) {
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            .branches-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo-area">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-trophy"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>لیگ مجازی اتحاد</h1>
+                    <p>پورتال رسمی شعب و تورنمنت‌ها</p>
+                </div>
+            </a>
+
+            <div class="header-actions">
+                <a href="https://rubika.ir/@EtihadLeague" target="_blank" rel="noopener noreferrer" class="btn-rubika">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    کانال روبیکا
+                </a>
+                <a href="https://cafebazaar.ir/app/xstudio.app_4x2syuff.product?ref=share" target="_blank" rel="noopener noreferrer" class="btn-bazaar">
+                    <i class="fa-solid fa-download"></i>
+                    برنامه بازار
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-badge">
+            <i class="fa-solid fa-circle-check"></i>
+            ۱۰ شعبه تخصصی و فعال
+        </div>
+        <h2>مرجع رسمی مسابقات لیگ مجازی اتحاد</h2>
+        <p>شعبه مورد نظر خود را انتخاب کرده و از جدیدترین جداول، نتایج و مسابقات باخبر شوید.</p>
+    </section>
+
+    <!-- APP PROMO CARD -->
+    <div class="app-promo-card">
+        <div class="app-banner">
+            <div class="app-banner-info">
+                <div class="app-icon">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                </div>
+                <div>
+                    <h4>دانلود اپلیکیشن رسمی لیگ اتحاد</h4>
+                    <p>دسترسی سریع‌تر به نتایج، پخش مسابقات و آمار بازیکنان در بازار</p>
+                </div>
+            </div>
+            <a href="https://cafebazaar.ir/app/xstudio.app_4x2syuff.product?ref=share" target="_blank" rel="noopener noreferrer" class="app-banner-btn">
+                <i class="fa-solid fa-cloud-arrow-down"></i>
+                نصب از بازار
+            </a>
+        </div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="controls-wrapper">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" id="searchInput" onkeyup="filterBranches()" placeholder="جستجوی شعبه یا مسابقات...">
+        </div>
+    </div>
+
+    <!-- 10 BRANCHES -->
+    <main class="branches-container" id="branchesList">
+
+        <!-- 1. لیگ ایران -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="branch-title">
+                        <h3>شعبه فوتبال ایران</h3>
+                        <span class="tag"><i class="fa-solid fa-star"></i> رقابت‌های رسمی</span>
+                    </div>
+                </div>
+                <div class="branch-desc">شامل تمام تورنمنت‌ها و مسابقات سطح اول و قاره‌ای تیم‌های ایرانی.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">لیگ برتر</span>
+                    <span class="sub-badge">لیگ آزادگان</span>
+                    <span class="sub-badge">جام حذفی</span>
+                    <span class="sub-badge">سوپرجام</span>
+                    <span class="sub-badge">لیگ نخبگان</span>
+                    <span class="sub-badge">سطح ۲ آسیا</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#iran" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 2. لیگ ایتالیا -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-volleyball"></i></div>
+                    <div class="branch-title">
+                        <h3>شعبه لیگ ایتالیا</h3>
+                        <span class="tag"><i class="fa-solid fa-star"></i> سری آ و کاپ</span>
+                    </div>
+                </div>
+                <div class="branch-desc">جداول و نتایج مسابقات سری آ، کوپا ایتالیا و سوپرکاپ باشگاه‌های ایتالیا.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">سری آ</span>
+                    <span class="sub-badge">جام حذفی ایتالیا</span>
+                    <span class="sub-badge">سوپرجام ایتالیا</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#italy" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 3. لیگ انگلیس -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branchشعبه لیگ ایتالیا</h3>
+                        <span class="tag"><i class="fa-solid fa-star"></i> سری آ و کاپ</span>
+                    </div>
+                </div>
+                <div class="branch-desc">جداول و نتایج مسابقات سری آ، کوپا ایتالیا و سوپرکاپ باشگاه‌های ایتالیا.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">سری آ</span>
+                    <span class="sub-badge">جام حذفی ایتالیا</span>
+                    <span class="sub-badge">سوپرجام ایتالیا</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#italy" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 3. لیگ انگلیس -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-crown"></i></div>
+                    <div class="branch-title">
+                        <h3>شعبه لیگ انگلیس</h3>
+                        <span class="tag"><i class="fa-solid fa-star"></i> لیگ برتر جزیره</span>
+                    </div>
+                </div>
+                <div class="branch-desc">مهیج‌ترین رقابت‌های باشگاهی انگلیس به همراه جام حذفی و سوپرکاپ.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">پریمیرلیگ</span>
+                    <span class="sub-badge">FA Cup</span>
+                    <span class="sub-badge">سوپرجام انگلیس</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#england" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 4. چمپیونزلیگ -->
+        <div class="branch-card">
+            <div>
+                به</a>
+            </div>
+        </div>
+
+        <!-- 5. FIFA FC 27 -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-gamepad"></i></div>
+                    <div class="branch-title">
+                        <h3>شعبه FIFA FC 27</h3>
+                        <span class="tag"><i class="fa-solid fa-bolt"></i> شبیه‌ساز گیمینگ</span>
+                    </div>
+                </div>
+                <div class="branch-desc">مسابقات تخصصی فوتبال فیفا، جدول رده‌بندی و دوره‌های جدید.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">جدول سیزن</span>
+                    <span class="sub-badge">فهرست بازی‌ها</span>
+                    <span class="sub-badge">دوره‌های آینده</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#fifa" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 6. کشتی کج -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-hand-fist"></i></div>
+                    <div class="branch-title">
+                        <h3>شعبه کشتی کج</h3>
+                        <span class="tag"><i class="fa-solid fa-fire"></i> نبردهای ویژه</span>
+                    </div>
+                </div>
+                <div class="branch-desc">نتایج مبارزات، رویدادها و لیست سوپراستارهای مطرح دنیای رسلینگ.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">مبارزات</span>
+                    <span class="sub-badge">سوپراستارها</span>
+                    <span class="sub-badge">کمربندها</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#wrestling" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 7. تورنمنت آنلاین -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-network-wired"></i></div>
+                    <div class="branch-title">
+                        <h3>تورنمنت آنلاین</h3>
+                        <span class="tag"><i class="fa-solid fa-signal"></i> رقابت زنده</span>
+                    </div>
+                </div>
+                <div class="branch-desc">فهرست و نتایج بازی‌های آنلاین لیگ اتحاد بدون پیچیدگی و به‌صورت مستقیم.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">لیست مسابقات</span>
+                    <span class="sub-badge">وضعیت برگزاری</span>
+                    <span class="sub-badge">نتایج نهایی</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#online-tour" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 8. پنالتی جهتی -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-bullseye"></i></div>
+                    <div class="branch-title">
+                        <h3>پنالتی جهتی</h3>
+                        <span class="tag"><i class="fa-solid fa-diagram-project"></i> براکت حذفی</span>
+                    </div>
+                </div>
+                <div class="branch-desc">نمودار درختی جذاب مسابقات پنالتی جهتی تا تعیین قهرمان نهایی.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">نمودار درختی</span>
+                    <span class="sub-badge">برندگان مراحل</span>
+                    <span class="sub-badge">فینال</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#penalties" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 9. کیهان موبایل -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <div class="branch-title">
+                        <h3>کیهان موبایل</h3>
+                        <span class="tag"><i class="fa-solid fa-medal"></i> رکوردها</span>
+                    </div>
+                </div>
+                <div class="branch-desc">جدول رقابت‌ها، برنامه‌ها و تالار افتخارات تیم‌ها و بازیکنان برتر.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">جدول بازی‌ها</span>
+                    <span class="sub-badge">پرافتخارترین‌ها</span>
+                    <span class="sub-badge">آمار جامع</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#keyhan" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+        <!-- 10. شعبه کلاسیک -->
+        <div class="branch-card">
+            <div>
+                <div class="branch-header">
+                    <div class="branch-icon"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                    <div class="branch-title">
+                        <h3>شعبه کلاسیک</h3>
+                        <span class="tag"><i class="fa-solid fa-award"></i> نوستالژی</span>
+                    </div>
+                </div>
+                <div class="branch-desc">جدول و مسابقات کلاسیک لیگ اتحاد با قوانین و شرایط اختصاصی.</div>
+                <div class="branch-subs">
+                    <span class="sub-badge">جدول کلاسیک</span>
+                    <span class="sub-badge">مسابقات قدیمی</span>
+                    <span class="sub-badge">افتخارات</span>
+                </div>
+            </div>
+            <div class="branch-footer">
+                <span class="status-tag"><i class="fa-solid fa-circle-dot"></i> فعال</span>
+                <a href="#classic" class="btn-enter">ورود به شعبه</a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-socials">
+                <a href="https://rubika.ir/@EtihadLeague" target="_blank" rel="noopener noreferrer" class="btn-rubika">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    کانال روبیکا: EtihadLeague@
+                </a>
+                <a href="https://cafebazaar.ir/app/xstudio.app_4x2syuff.product?ref=share" target="_blank" rel="noopener noreferrer" class="btn-bazaar">
+                    <i class="fa-solid fa-download"></i>
+                    دانلود مستقیم از بازار
+                </a>
+            </div>
+            <p class="footer-note">© ۱۴۰۵ کلیه حقوق برای پورتال رسمی لیگ مجازی اتحاد محفوظ است.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT FOR LIVE SEARCH -->
+    <script>
+        function filterBranches() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let cards = document.getElementsByClassName('branch-card');
+            
+            for (let i = 0; i < cards.length; i++) {
+                let text = cards[i].innerText.toLowerCase();
+                if (text.includes(input)) {
+                    cards[i].style.display = "flex";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
