@@ -3,157 +3,177 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>پورتال رسمی لیگ مجازی اتحاد</title>
-    <!-- FontAwesome & Vazirmatn Font -->
+    <title>لیگ مجازی اتحاد | الاتحاد</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
     <style>
         :root {
-            --bg-dark: #070d12;
-            --card-bg: rgba(14, 25, 36, 0.85);
-            --card-border: rgba(46, 204, 113, 0.25);
-            --accent-green: #00ff87;
-            --accent-gold: #ffd700;
-            --accent-blue: #00b4d8;
-            --accent-red: #ff4757;
-            --text-main: #f0f4f8;
-            --text-muted: #94a3b8;
+            --bg-color: #0b0f19;
+            --card-bg: rgba(18, 26, 43, 0.85);
+            --card-border: rgba(0, 255, 170, 0.2);
+            --neon-green: #00ffaa;
+            --neon-green-glow: rgba(0, 255, 170, 0.4);
+            --neon-blue: #00b4d8;
+            --text-primary: #ffffff;
+            --text-secondary: #94a3b8;
+            --gold: #ffd700;
+            --silver: #e2e8f0;
+            --bronze: #cd7f32;
+            --danger: #ef4444;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
             font-family: 'Vazirmatn', sans-serif;
-            -webkit-tap-highlight-color: transparent;
+            scroll-behavior: smooth;
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            overflow-x: hidden;
             background-image: 
-                radial-gradient(circle at 15% 20%, rgba(0, 255, 135, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 80%, rgba(0, 180, 216, 0.05) 0%, transparent 40%);
-            color: var(--text-main);
+                radial-gradient(circle at 15% 15%, rgba(0, 255, 170, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(0, 180, 216, 0.05) 0%, transparent 40%);
             min-height: 100vh;
-            padding-bottom: 60px;
         }
 
-        a { text-decoration: none; color: inherit; }
-
-        /* Header */
+        /* Navigation Header */
         header {
             position: sticky;
             top: 0;
-            z-index: 100;
-            background: rgba(7, 13, 18, 0.9);
+            z-index: 1000;
+            background: rgba(11, 15, 25, 0.92);
             backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid var(--card-border);
             padding: 12px 24px;
         }
 
-        .header-container {
-            max-width: 1400px;
+        .nav-container {
+            max-width: 1280px;
             margin: 0 auto;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
+            justify-content: space-between;
             gap: 15px;
         }
 
         .logo-area {
             display: flex;
             align-items: center;
-            gap: 12px;
-        }
-
-        .logo-icon {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--accent-green), var(--accent-blue));
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 22px;
-            color: #070d12;
-            box-shadow: 0 0 15px rgba(0, 255, 135, 0.3);
-        }
-
-        .logo-text h1 {
+            gap: 10px;
             font-size: 1.25rem;
             font-weight: 900;
-            background: linear-gradient(90deg, #fff, var(--accent-green));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green-glow);
+            text-decoration: none;
         }
 
-        .logo-text span {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-        }
-
-        .header-actions {
+        .nav-links {
             display: flex;
-            align-items: center;
+            gap: 8px;
+            list-style: none;
+            overflow-x: auto;
+            padding: 4px 0;
+        }
+
+        .nav-links::-webkit-scrollbar {
+            height: 0px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid transparent;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: #0b0f19;
+            background: var(--neon-green);
+            box-shadow: 0 0 12px var(--neon-green-glow);
+            border-color: var(--neon-green);
+        }
+
+        .social-buttons {
+            display: flex;
             gap: 10px;
         }
 
-        .btn-social {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 14px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
         .btn-rubika {
-            background: rgba(138, 43, 226, 0.15);
-            color: #c084fc;
-            border-color: rgba(192, 132, 252, 0.3);
-        }
-        .btn-rubika:hover {
-            background: #a855f7;
+            background: linear-gradient(135deg, #7c3aed, #a855f7);
             color: #fff;
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+            padding: 7px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
         .btn-bazaar {
-            background: rgba(34, 197, 94, 0.15);
-            color: #4ade80;
-            border-color: rgba(74, 222, 128, 0.3);
-        }
-        .btn-bazaar:hover {
-            background: #22c55e;
+            background: linear-gradient(135deg, #10b981, #059669);
             color: #fff;
-            box-shadow: 0 0 15px rgba(34, 197, 94, 0.4);
-        }
-
-        /* Container & Grid Layout */
-        .main-container {
-            max-width: 1400px;
-            margin: 25px auto;
-            padding: 0 20px;
+            padding: 7px 14px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: bold;
             display: flex;
-            flex-direction: column;
-            gap: 30px;
+            align-items: center;
+            gap: 6px;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .dashboard-grid {
+        .btn-rubika:hover, .btn-bazaar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+        }
+
+        /* Layout Container */
+        .main-container {
+            max-width: 1280px;
+            margin: 20px auto;
+            padding: 0 16px;
+        }
+
+        .section-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-right: 4px solid var(--neon-green);
+            padding-right: 12px;
+        }
+
+        .section-title i {
+            color: var(--neon-green);
+        }
+
+        /* Top Grid (Matches & Standings) */
+        .top-grid {
             display: grid;
-            grid-template-columns: 1fr 1.3fr;
-            gap: 25px;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
-        @media (max-width: 992px) {
-            .dashboard-grid {
+        @media (max-width: 900px) {
+            .top-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -162,335 +182,314 @@
             background: var(--card-bg);
             border: 1px solid var(--card-border);
             border-radius: 16px;
-            padding: 20px;
-            backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
+            padding: 18px;
+            backdrop-filter: blur(8px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
         }
 
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, var(--accent-green), transparent);
-        }
-
-        .card-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
-            padding-bottom: 12px;
-        }
-
-        .card-header h2 {
-            font-size: 1.15rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #fff;
-        }
-
-        .card-header h2 i {
-            color: var(--accent-green);
-        }
-
-        /* Matches Box */
-        .match-item {
-            background: rgba(7, 13, 18, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+        /* Matches List */
+        .match-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 12px;
-            padding: 14px 18px;
-            margin-bottom: 14px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
             transition: all 0.2s;
         }
 
-        .match-item:hover {
-            border-color: var(--accent-green);
-            transform: translateX(-4px);
+        .match-card:hover {
+            border-color: var(--neon-green);
+            background: rgba(0, 255, 170, 0.03);
         }
 
-        .team-box {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
+        .team-name {
+            font-weight: 700;
             font-size: 0.95rem;
             width: 38%;
         }
 
-        .team-box.away {
-            justify-content: flex-end;
-            text-align: left;
-        }
+        .team-name.home { text-align: left; }
+        .team-name.away { text-align: right; }
 
         .match-score {
-            font-size: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: #060911;
+            padding: 4px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--neon-green-glow);
+        }
+
+        .score-text {
             font-weight: 900;
-            color: var(--accent-gold);
-            padding: 4px 12px;
-            background: rgba(0, 0, 0, 0.4);
-            border-radius: 6px;
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: var(--neon-green);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
         }
 
-        .match-status {
-            font-size: 0.75rem;
-            padding: 3px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .status-live {
-            background: rgba(255, 71, 87, 0.2);
-            color: var(--accent-red);
-            border: 1px solid rgba(255, 71, 87, 0.4);
-            animation: pulse 1.5s infinite;
-        }
-
-        .status-finished {
-            background: rgba(148, 163, 184, 0.15);
-            color: var(--text-muted);
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.4; }
+        .match-badge {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+            margin-top: 2px;
         }
 
         /* League Table */
         .table-responsive {
-            max-height: 480px;
+            max-height: 380px;
             overflow-y: auto;
-            border-radius: 8px;
         }
 
         .table-responsive::-webkit-scrollbar {
-            width: 5px;
+            width: 6px;
         }
+
         .table-responsive::-webkit-scrollbar-thumb {
-            background: rgba(0, 255, 135, 0.3);
+            background: var(--card-border);
             border-radius: 4px;
         }
 
-        .league-table {
+        table {
             width: 100%;
             border-collapse: collapse;
             text-align: center;
             font-size: 0.85rem;
         }
 
-        .league-table th {
-            background: #0b151f;
-            color: var(--text-muted);
-            padding: 10px;
+        th {
+            background: rgba(0, 255, 170, 0.1);
+            color: var(--neon-green);
+            padding: 10px 6px;
+            font-weight: 700;
             position: sticky;
             top: 0;
-            z-index: 5;
-            font-weight: 600;
+            z-index: 2;
         }
 
-        .league-table td {
-            padding: 10px 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+        td {
+            padding: 8px 6px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            color: #e2e8f0;
         }
 
-        .league-table tr:hover {
-            background: rgba(0, 255, 135, 0.04);
+        tr:hover td {
+            background: rgba(255, 255, 255, 0.02);
         }
 
-        .league-table td.team-name {
+        .team-cell {
             text-align: right;
-            font-weight: 700;
-            color: #fff;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            font-weight: 600;
+            padding-right: 10px;
         }
 
         .rank-badge {
+            display: inline-block;
             width: 22px;
             height: 22px;
+            line-height: 22px;
             border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700;
             font-size: 0.75rem;
-            background: rgba(255, 255, 255, 0.1);
+            font-weight: bold;
+            background: rgba(255,255,255,0.08);
         }
 
-        .rank-1 { background: var(--accent-gold); color: #000; }
-        .rank-2 { background: #e2e8f0; color: #000; }
-        .rank-3 { background: #cd7f32; color: #fff; }
+        .top-1 { background: var(--gold); color: #000; }
+        .top-2 { background: var(--silver); color: #000; }
+        .top-3 { background: var(--bronze); color: #000; }
 
         /* Branches Grid */
         .branches-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 14px;
+            margin-bottom: 30px;
         }
 
         .branch-card {
-            background: rgba(14, 25, 36, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 14px;
             padding: 16px;
             text-align: center;
             cursor: pointer;
             transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
         }
 
         .branch-card:hover {
-            border-color: var(--accent-green);
-            transform: translateY(-5px);
-            background: rgba(0, 255, 135, 0.05);
-            box-shadow: 0 5px 20px rgba(0, 255, 135, 0.15);
+            transform: translateY(-4px);
+            border-color: var(--neon-green);
+            box-shadow: 0 6px 20px var(--neon-green-glow);
         }
 
         .branch-icon {
             font-size: 2rem;
-            color: var(--accent-green);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+            color: var(--neon-green);
         }
 
-        .branch-title {
+        .branch-name {
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #fff;
-            margin-bottom: 6px;
         }
 
-        .branch-tag {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            background: rgba(255, 255, 255, 0.05);
-            padding: 3px 8px;
-            border-radius: 20px;
-            display: inline-block;
+        .branch-badge {
+            font-size: 0.7rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
         }
 
-        /* News & Poll Section */
-        .news-poll-grid {
+        /* News & Poll Grid */
+        .bottom-grid {
             display: grid;
-            grid-template-columns: 1.4fr 1fr;
-            gap: 25px;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 20px;
+            margin-bottom: 30px;
         }
 
-        @media (max-width: 992px) {
-            .news-poll-grid { grid-template-columns: 1fr; }
+        @media (max-width: 900px) {
+            .bottom-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         .news-item {
-            display: flex;
-            gap: 15px;
-            padding: 14px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .news-item:last-child { border-bottom: none; }
-
-        .news-date {
-            background: rgba(0, 180, 216, 0.15);
-            color: var(--accent-blue);
-            border: 1px solid rgba(0, 180, 216, 0.3);
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            height: fit-content;
-            text-align: center;
-            white-space: nowrap;
-        }
-
-        .news-content h4 {
-            font-size: 0.95rem;
-            color: #fff;
-            margin-bottom: 6px;
-        }
-
-        .news-content p {
-            font-size: 0.85rem;
-            color: var(--text-muted);
-            line-height: 1.6;
-        }
-
-        /* Poll */
-        .poll-option {
-            background: rgba(7, 13, 18, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            border-right: 3px solid var(--neon-green);
             padding: 12px 16px;
             margin-bottom: 12px;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .news-date {
+            font-size: 0.75rem;
+            color: var(--neon-green);
+            margin-bottom: 4px;
+        }
+
+        .news-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+            margin-bottom: 4px;
+        }
+
+        .news-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Poll Box */
+        .poll-option {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            padding: 10px 14px;
+            margin-bottom: 10px;
             cursor: pointer;
-            position: relative;
-            overflow: hidden;
             transition: all 0.2s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .poll-option:hover {
-            border-color: var(--accent-green);
+            border-color: var(--neon-green);
+            background: rgba(0, 255, 170, 0.05);
         }
 
-        .poll-progress {
-            position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 255, 135, 0.15);
-            width: 0%;
-            transition: width 0.6s ease;
-            z-index: 1;
+        .poll-option.selected {
+            border-color: var(--neon-green);
+            background: rgba(0, 255, 170, 0.15);
+            font-weight: bold;
         }
 
-        .poll-text {
-            position: relative;
-            z-index: 2;
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.9rem;
-            font-weight: 600;
-        }
-
-        /* Hall of Fame (Tabs) */
-        .tabs-nav {
+        /* Hall of Fame */
+        .tabs {
             display: flex;
             gap: 10px;
-            margin-bottom: 20px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .tab-btn {
-            background: transparent;
-            border: none;
-            color: var(--text-muted);
-            font-size: 0.95rem;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-secondary);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 8px 18px;
+            border-radius: 10px;
             font-weight: 700;
-            padding: 8px 16px;
             cursor: pointer;
-            border-radius: 8px;
-            transition: all 0.3s;
+            transition: all 0.2s;
         }
 
         .tab-btn.active {
-            background: var(--accent-green);
-            color: #070d12;
+            background: var(--neon-green);
+            color: #0b0f19;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 12px var(--neon-green-glow);
         }
 
-        .tab-pane {
-            display: none;
+        .ranking-search {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid var(--card-border);
+            padding: 10px 16px;
+            border-radius: 10px;
+            color: #fff;
+            outline: none;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
         }
 
-        .tab-pane.active {
-            display: block;
+        .ranking-search:focus {
+            border-color: var(--neon-green);
+            box-shadow: 0 0 8px var(--neon-green-glow);
+        }
+
+        .seasons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 15px;
+        }
+
+        .season-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 14px;
+        }
+
+        .season-title {
+            font-weight: 800;
+            color: var(--neon-green);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding-bottom: 6px;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .trophy-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+        }
+
+        .trophy-name {
+            color: var(--text-secondary);
+        }
+
+        .trophy-winner {
+            font-weight: 700;
+            color: #fff;
         }
 
         /* Modal */
@@ -501,83 +500,79 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.8);
             backdrop-filter: blur(8px);
-            z-index: 1000;
+            z-index: 2000;
             align-items: center;
             justify-content: center;
             padding: 20px;
         }
 
+        .modal.open {
+            display: flex;
+        }
+
         .modal-content {
-            background: #0d1822;
-            border: 1px solid var(--accent-green);
+            background: #121a2b;
+            border: 1px solid var(--neon-green);
             border-radius: 16px;
-            max-width: 600px;
+            max-width: 500px;
             width: 100%;
-            padding: 25px;
+            padding: 24px;
             position: relative;
-            max-height: 85vh;
-            overflow-y: auto;
-            box-shadow: 0 0 30px rgba(0, 255, 135, 0.2);
+            box-shadow: 0 0 25px var(--neon-green-glow);
         }
 
         .modal-close {
             position: absolute;
-            top: 15px;
-            left: 15px;
-            font-size: 1.5rem;
-            color: var(--text-muted);
+            top: 16px;
+            left: 16px;
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            font-size: 1.2rem;
             cursor: pointer;
         }
 
         .modal-close:hover { color: #fff; }
 
-        .modal-title {
-            font-size: 1.3rem;
-            color: var(--accent-green);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .modal-desc-list {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .modal-desc-list li {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 10px 14px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border-right: 3px solid var(--accent-green);
+        footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
+    <!-- Header & Navigation -->
     <header>
-        <div class="header-container">
-            <div class="logo-area">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-trophy"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>لیگ مجازی اتحاد</h1>
-                    <span>بزرگترین پلتفرم مسابقات آنلاین و فانتزی</span>
-                </div>
-            </div>
-            <div class="header-actions">
-                <a href="https://rubika.ir/joing/JAFHHFGI0GWSOUKCKYUKWIKMUBEPUDTD" target="_blank" class="btn-social btn-rubika">
-                    <i class="fa-solid fa-paper-plane"></i> کانال روبیکا
+        <div class="nav-container">
+            <a href="#" class="logo-area">
+                <i class="fa-solid fa-trophy"></i>
+                <span>لیگ اتحاد</span>
+            </a>
+            
+            <ul class="nav-links">
+                <li><a href="#matches">بازی‌ها</a></li>
+                <li><a href="#standings">جدول لیگ</a></li>
+                <li><a href="#branches">شعبه‌ها</a></li>
+                <li><a href="#news">اخبار</a></li>
+                <li><a href="#poll">نظرسنجی</a></li>
+                <li><a href="#hall-of-fame">تالار افتخارات</a></li>
+            </ul>
+
+            <div class="social-buttons">
+                <a href="https://rubika.ir/@EtihadLeague" target="_blank" class="btn-rubika">
+                    <i class="fa-solid fa-paper-plane"></i>
+                    <span>کانال روبیکا</span>
                 </a>
-                <a href="https://cafebazaar.ir" target="_blank" class="btn-social btn-bazaar">
-                    <i class="fa-solid fa-download"></i> دانلود بازار
+                <a href="https://cafebazaar.ir/app/xstudio.app_4x2syuff.product?ref=share" target="_blank" class="btn-bazaar">
+                    <i class="fa-solid fa-download"></i>
+                    <span>برنامه در بازار</span>
                 </a>
             </div>
         </div>
@@ -585,78 +580,65 @@
 
     <div class="main-container">
 
-        <!-- بخش مسابقات و جدول لیگ (مشابه چیدمان داشبورد) -->
-        <div class="dashboard-grid">
+        <!-- Matches & Standings Grid -->
+        <div class="top-grid">
             
-            <!-- باکس بازی‌ها -->
-            <div class="card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-futbol"></i> بازی‌های داغ شعبات</h2>
-                    <span class="match-status status-live">زنده و پایانی</span>
+            <!-- Matches Box -->
+            <div class="card" id="matches">
+                <div class="section-title">
+                    <i class="fa-solid fa-futbol"></i>
+                    نتایج مرحله ¼ نهایی چمپیونزلیگ
+                </div>
+                
+                <div class="match-card">
+                    <div class="team-name home">اینتر میلان 🇮🇹</div>
+                    <div class="match-score">
+                        <span class="score-text">۸ - ۱</span>
+                        <span class="match-badge">پایان بازی</span>
+                    </div>
+                    <div class="team-name away">دورتموند 🇩🇪</div>
                 </div>
 
-                <div class="match-item">
-                    <div class="team-box">
-                        <i class="fa-solid fa-shield-halved" style="color: #ffd700;"></i>
-                        <span>رئال مادرید</span>
+                <div class="match-card">
+                    <div class="team-name home">آتالانتا 🇮🇹</div>
+                    <div class="match-score">
+                        <span class="score-text">۱ - ۶</span>
+                        <span class="match-badge">پایان بازی</span>
                     </div>
-                    <div class="match-score">۲ - ۱</div>
-                    <div class="team-box away">
-                        <span>آث میلان</span>
-                        <i class="fa-solid fa-shield-halved" style="color: #ff4757;"></i>
-                    </div>
+                    <div class="team-name away">نیوکاسل 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
                 </div>
 
-                <div class="match-item">
-                    <div class="team-box">
-                        <i class="fa-solid fa-shield-halved" style="color: #fff;"></i>
-                        <span>نیوکاسل</span>
+                <div class="match-card">
+                    <div class="team-name home">منچسترسیتی 🏴󠁧󠁢󠁥󠁮󠁧󠁿</div>
+                    <div class="match-score">
+                        <span class="score-text">۲ - ۱</span>
+                        <span class="match-badge">پایان بازی</span>
                     </div>
-                    <div class="match-score">۱ - ۱</div>
-                    <div class="team-box away">
-                        <span>آتالانتا</span>
-                        <i class="fa-solid fa-shield-halved" style="color: #00b4d8;"></i>
-                    </div>
+                    <div class="team-name away">بارسلونا 🇪🇸</div>
                 </div>
 
-                <div class="match-item">
-                    <div class="team-box">
-                        <i class="fa-solid fa-shield-halved" style="color: #9b59b6;"></i>
-                        <span>بارسلونا</span>
+                <div class="match-card">
+                    <div class="team-name home">رئال مادرید 🇪🇸</div>
+                    <div class="match-score">
+                        <span class="score-text">۴ - ۱</span>
+                        <span class="match-badge">پایان بازی</span>
                     </div>
-                    <div class="match-score">۰ - ۳</div>
-                    <div class="team-box away">
-                        <span>منچسترسیتی</span>
-                        <i class="fa-solid fa-shield-halved" style="color: #00ff87;"></i>
-                    </div>
-                </div>
-
-                <div class="match-item">
-                    <div class="team-box">
-                        <i class="fa-solid fa-shield-halved" style="color: #f1c40f;"></i>
-                        <span>دورتموند</span>
-                    </div>
-                    <div class="match-score">۲ - ۲</div>
-                    <div class="team-box away">
-                        <span>اینتر میلان</span>
-                        <i class="fa-solid fa-shield-halved" style="color: #3498db;"></i>
-                    </div>
+                    <div class="team-name away">آث میلان 🇮🇹</div>
                 </div>
             </div>
 
-            <!-- جدول چمپیونزلیگ ۲۴ تیمی -->
-            <div class="card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-list-ol"></i> جدول چمپیونزلیگ (۲۴ تیمی)</h2>
-                    <span style="font-size:0.8rem; color:var(--text-muted);">فصل ۳۰</span>
+            <!-- Standings Table -->
+            <div class="card" id="standings">
+                <div class="section-title">
+                    <i class="fa-solid fa-list-ol"></i>
+                    جدول ۲۴ تیمی چمپیونزلیگ
                 </div>
-
                 <div class="table-responsive">
-                    <table class="league-table">
+                    <table>
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th style="text-align:right;">تیم</th>
+                                <th class="team-cell">تیم</th>
                                 <th>بازی</th>
                                 <th>برد</th>
                                 <th>مساوی</th>
@@ -665,8 +647,8 @@
                                 <th>امتیاز</th>
                             </tr>
                         </thead>
-                        <tbody id="tableBody">
-                            <!-- ردیف‌های ۲۴ تیمی -->
+                        <tbody id="standings-body">
+                            <!-- Populated via JS -->
                         </tbody>
                     </table>
                 </div>
@@ -674,144 +656,122 @@
 
         </div>
 
-        <!-- بخش ۱۰ شعبه لیگ اتحاد -->
-        <div class="card">
-            <div class="card-header">
-                <h2><i class="fa-solid fa-sitemap"></i> شعبات رسمی اتحادیه اتحاد</h2>
-                <span style="font-size:0.8rem; color:var(--accent-green);">برای دیدن قوانین و جزئیات کلیک کنید</span>
+        <!-- Branches Section -->
+        <div id="branches">
+            <div class="section-title">
+                <i class="fa-solid fa-sitemap"></i>
+                شعبه‌های ده گانه لیگ مجازی اتحاد
             </div>
-
-            <div class="branches-grid" id="branchesGrid">
-                <!-- ۱۰ شعبه اینجا با جاوااسکریپت لود می‌شوند -->
+            <div class="branches-grid" id="branches-container">
+                <!-- Rendered dynamically -->
             </div>
         </div>
 
-        <!-- بخش اخبار و نظرسنجی -->
-        <div class="news-poll-grid">
+        <!-- News & Poll Grid -->
+        <div class="bottom-grid">
             
-            <!-- اخبار لیگ (۱۴۰۴/۶/۱۲) -->
-            <div class="card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-newspaper"></i> اخبار و اطلاعیه‌های رسمی</h2>
+            <!-- News Box -->
+            <div class="card" id="news">
+                <div class="section-title">
+                    <i class="fa-solid fa-newspaper"></i>
+                    آخرین اخبار لیگ (۱۴۰۴/۶/۱۲)
                 </div>
 
                 <div class="news-item">
-                    <div class="news-date">۱۴۰۴/۰۶/۱۲</div>
-                    <div class="news-content">
-                        <h4>شعبه کیهان موبایل متفاوت به زودی</h4>
-                        <p>تغییرات بنیادین و فرمت جذاب جدید برای شعبه کیهان موبایل در حال نهایی‌سازی است و به زودی استارت خواهد خورد.</p>
-                    </div>
+                    <div class="news-date">۱۴۰۴/۰۶/۱۲ - رسمی</div>
+                    <div class="news-title">رونمایی از فرمت جدید کیهان موبایل</div>
+                    <div class="news-desc">شعبه کیهان موبایل با آپدیت جدید مسابقات و ساختار کامپکت، آماده شروع فصل جدید شد.</div>
                 </div>
 
                 <div class="news-item">
-                    <div class="news-date">۱۴۰۴/۰۶/۱۲</div>
-                    <div class="news-content">
-                        <h4>لیگ ایران ۱۶ تیمی خواهد شد!</h4>
-                        <p>با تصمیم شورای مدیران اتحاد، رقابت‌های لیگ ایران به ساختار ۱۶ تیمی تغییر یافت و لیگ آزادگان نیز به زودی اضافه خواهد شد.</p>
-                    </div>
+                    <div class="news-date">۱۴۰۴/۰۶/۱۲ - ویژه</div>
+                    <div class="news-title">۱۶ تیمی شدن لیگ ایران و تأسیس لیگ آزادگان</div>
+                    <div class="news-desc">طبق اعلام مدیریت، لیگ برتر ایران رسماً ۱۶ تیمی شد و سیستم سقوط و صعود با لیگ آزادگان فعال گردید.</div>
                 </div>
 
-                <div class="news-item">
-                    <div class="news-date">۱۴۰۴/۰۶/۱۲</div>
-                    <div class="news-content">
-                        <h4>بریز و بپاش امیر اتحاد (۸۰۰ هزار تومان جایزه)</h4>
-                        <p>بزرگترین پاداش و جایزه نقدی فصل به ارزش ۸۰۰ هزار تومان توسط امیر اتحاد برای برترین‌های این دوره تعیین گردید.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- نظرسنجی قهرمان چمپیونزلیگ -->
-            <div class="card">
-                <div class="card-header">
-                    <h2><i class="fa-solid fa-square-poll-vertical"></i> نظرسنجی هواداران</h2>
-                </div>
-                <p style="font-size: 0.9rem; margin-bottom: 15px; color: var(--text-muted);">
-                    قهرمان فصل ۳۰ چمپیونزلیگ از نظر شما کیست؟
-                </p>
-
-                <div class="poll-option" onclick="vote(0)">
-                    <div class="poll-progress" id="prog-0" style="width: 45%;"></div>
-                    <div class="poll-text">
-                        <span>منچسترسیتی</span>
-                        <span id="pct-0">۴۵%</span>
-                    </div>
-                </div>
-
-                <div class="poll-option" onclick="vote(1)">
-                    <div class="poll-progress" id="prog-1" style="width: 25%;"></div>
-                    <div class="poll-text">
-                        <span>اینتر میلان</span>
-                        <span id="pct-1">۲۵%</span>
-                    </div>
-                </div>
-
-                <div class="poll-option" onclick="vote(2)">
-                    <div class="poll-progress" id="prog-2" style="width: 20%;"></div>
-                    <div class="poll-text">
-                        <span>نیوکاسل</span>
-                        <span id="pct-2">۲۰%</span>
-                    </div>
-                </div>
-
-                <div class="poll-option" onclick="vote(3)">
-                    <div class="poll-progress" id="prog-3" style="width: 10%;"></div>
-                    <div class="poll-text">
-                        <span>سایر تیم‌ها</span>
-                        <span id="pct-3">۱۰%</span>
-                    </div>
+                بازی</th>
+                                <th>برد</th>
+                                <th>مساوی</th>
+                                <th>باخت</th>
+                                <th>تفاضل</th>
+                                <th>امتیاز</th>
+                            </tr>
+                        </thead>
+                        <tbody id="standings-body">
+                            <!-- Populated via JS -->
+                        </tbody>
+                    </table>
                 </div>
             </div>
 
         </div>
 
-        <!-- تالار افتخارات (رنکینگ کلی و قهرمانان فصول) -->
-        <div class="card">
-            <div class="card-header">
-                <h2><i class="fa-solid fa-crown" style="color: var(--accent-gold);"></i> تالار افتخارات و مشاهیر اتحاد</h2>
+        <!-- Branches Section -->
+        <div id="branches">
+            <div class="section-title">
+                <i class="fa-solid fa-sitemap"></i>
+                شعبه‌های ده گانه لیگ مجازی اتحاد
+            </div>
+            <div class="branches-grid" id="branches-container">
+                <!-- Rendered dynamically -->
+            </div>
+        </div>
+
+        <!-- News & Poll Grid -->
+        <div class="bottom-grid">
+            
+            <!-- News Box -->
+            <div class="card" id="news">
+                <div class="section-title">
+                    <i class="fa-solid fa-newspaper"></i>
+                    آخرین اخبار لیگ (۱۴۰۴/۶/۱۲)
+                </div>
+
+                <div class="news-item">
+                    <div class="news-date">۱۴۰۴/۰۶/۱۲ - رسمی</div>
+                    <div class="news-title">رونمایی از فرمت جدید کیهان موبایل</div>
+                    <div class="news-desc">شعبه کیهان موبایل با آپدیت جدید مسابقات و ساختار کامپکت، آماده شروع فصل جدید شد.</div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-date">۱۴۰۴/۰۶/۱۲ - ویژه</div>
+                    <div class="news-title">۱۶ تیمی شدن لیگ ایران و تأسیس لیگ آزادگان</div>
+                    <div class="news-desc">طبق اعلام مدیریت، لیگ برتر ایران رسماً ۱۶ تیمی شد و سیستم سقوط و صعود با لیگ آزادگان فعال گردید.</div>
+                </div>
+
+                <div class="news-item">
+                    <div class="news-date">۱۴۰۴/۰۶/۱۲ - جوایز</div>
+                    <div class="news-title">بریز و بپاش امیر اتحاد؛ جایزه ۸۰۰ هزار تومانی!</div>
+                    <div class="news-desc">پاداش ویژه ۸)</button>
+                <button class="tab-btn" onclick="switchTab('seasons')">قهرمانان ادوار لیگ ایران (فصل ۱ تا ۹)</button>
             </div>
 
-            <div class="tabs-nav">
-                <button class="tab-btn active" onclick="switchTab('tab-ranking', this)">رنکینگ کلی اتحاد</button>
-                <button class="tab-btn" onclick="switchTab('tab-champions', this)">قهرمانان ادوار لیگ ایران (فصل ۱ تا ۹)</button>
-            </div>
-
-            <!-- تب ۱: رنکینگ کلی -->
-            <div id="tab-ranking" class="tab-pane active">
-                <div class="table-responsive">
-                    <table class="league-table">
+            <!-- Tab 1: Ranking -->
+            <div id="tab-ranking">
+                <input type="text" id="ranking-search" class="ranking-search" placeholder="🔍 جستجوی کاربر در رنکینگ..." oninput="filterRanking()">
+                <div class="table-responsive" style="max-height: 500px;">
+                    <table>
                         <thead>
                             <tr>
                                 <th>رتبه</th>
-                                <th style="text-align:right;">نام کاربر / مدیر</th>
+                                <th class="team-cell">نام کاربر</th>
                                 <th>🥇 طلا</th>
                                 <th>🥈 نقره</th>
                                 <th>🥉 برنز</th>
-                                <th>مجموع امتیاز</th>
+                                <th>مجموع</th>
                             </tr>
                         </thead>
-                        <tbody id="rankingTableBody">
-                            <!-- لود دینامیک ۱۰۹ کاربر -->
+                        <tbody id="ranking-body">
+                            <!-- Populated via JS -->
                         </tbody>
                     </table>
                 </div>
             </div>
 
-            <!-- تب ۲: قهرمانان لیگ ایران -->
-            <div id="tab-champions" class="tab-pane">
-                <div class="table-responsive">
-                    <table class="league-table">
-                        <thead>
-                            <tr>
-                                <th>فصل</th>
-                                <th>نوع رقابت</th>
-                                <th>تیم قهرمان</th>
-                                <th>مدیر / قهرمان</th>
-                            </tr>
-                        </thead>
-                        <tbody id="championsTableBody">
-                            <!-- تاریخچه فصول ۱ تا ۹ -->
-                        </tbody>
-                    </table>
+            <!-- Tab 2: Iran League Seasons -->
+            <div id="tab-seasons" style="display: none;">
+                <div class="seasons-grid" id="seasons-container">
+                    <!-- Populated via JS -->
                 </div>
             </div>
 
@@ -819,303 +779,300 @@
 
     </div>
 
-    <!-- مودال نمایش اطلاعات شعبات -->
-    <div class="modal" id="branchModal">
+    <!-- Modal for Branch Details -->
+    <div class="modal" id="branch-modal">
         <div class="modal-content">
-            <i class="fa-solid fa-xmark modal-close" onclick="closeModal()"></i>
-            <div class="modal-title" id="mTitle">
-                <i class="fa-solid fa-circle-info"></i>
-                <span>عنوان شعبه</span>
-            </div>
-            <ul class="modal-desc-list" id="mList">
-                <!-- آیتم‌های ۹ گانه شعبه -->
-            </ul>
+            <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div style="font-size: 2rem; color: var(--neon-green); margin-bottom: 10px;" id="modal-icon"></div>
+            <h3 style="color: #fff; margin-bottom: 8px;" id="modal-title"></h3>
+            <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;" id="modal-desc"></p>
         </div>
     </div>
 
-    <!-- اسکریپت داده‌ها و عملکردهای زنده -->
+    <footer>
+        <p>طراحی و توسعه اختصاصی وب‌سایت لیگ مجازی اتحاد © ۱۴۰۴ | تمامی حقوق محفوظ است.</p>
+    </footer>
+
     <script>
-        // ۱. داده‌های ۲۴ تیم جدول چمپیونزلیگ
-        const leagueTeams = [
-            { name: "تاتنهام", p: 7, w: 6, d: 1, l: 0, gd: "+14", pts: 19 },
-            { name: "آرسنال", p: 7, w: 6, d: 0, l: 1, gd: "+11", pts: 18 },
-            { name: "اینتر میلان", p: 7, w: 5, d: 2, l: 0, gd: "+10", pts: 17 },
-            { name: "گالاتاسرای", p: 7, w: 5, d: 1, l: 1, gd: "+8", pts: 16 },
-            { name: "آتالانتا", p: 7, w: 5, d: 0, l: 2, gd: "+7", pts: 15 },
-            { name: "یوونتوس", p: 7, w: 4, d: 2, l: 1, gd: "+6", pts: 14 },
-            { name: "رئال مادرید", p: 7, w: 4, d: 1, l: 2, gd: "+5", pts: 13 },
-            { name: "فنرباغچه", p: 7, w: 4, d: 1, l: 2, gd: "+3", pts: 13 },
-            { name: "دورتموند", p: 7, w: 4, d: 0, l: 3, gd: "+4", pts: 12 },
-            { name: "پورتو", p: 7, w: 3, d: 2, l: 2, gd: "+2", pts: 11 },
-            { name: "منچسترسیتی", p: 7, w: 3, d: 2, l: 2, gd: "+1", pts: 11 },
-            { name: "بایرن مونیخ", p: 7, w: 3, d: 1, l: 3, gd: "0", pts: 10 },
-            { name: "نیوکاسل", p: 7, w: 3, d: 1, l: 3, gd: "-1", pts: 10 },
-            { name: "بایر لورکوزن", p: 7, w: 3, d: 0, l: 4, gd: "-2", pts: 9 },
-            { name: "بارسلونا", p: 7, w: 2, d: 2, l: 3, gd: "-3", pts: 8 },
-            { name: "آث میلان", p: 7, w: 2, d: 1, l: 4, gd: "-4", pts: 7 },
-            { name: "استون ویلا", p: 7, w: 2, d: 0, l: 5, gd: "-5", pts: 6 },
-            { name: "منچستر یونایتد", p: 7, w: 1, d: 2, l: 4, gd: "-6", pts: 5 },
-            { name: "لیورپول", p: 7, w: 1, d: 1, l: 5, gd: "-7", pts: 4 },
-            { name: "آ اس رم", p: 7, w: 1, d: 1, l: 5, gd: "-8", pts: 4 },
-            { name: "چلسی", p: 7, w: 1, d: 0, l: 6, gd: "-9", pts: 3 },
-            { name: "اتلتیکو مادرید", p: 7, w: 0, d: 2, l: 5, gd: "-10", pts: 2 },
-            { name: "ناپولی", p: 7, w: 0, d: 1, l: 6, gd: "-12", pts: 1 },
-            { name: "پاری‌سن‌ژرمن", p: 7, w: 0, d: 0, l: 7, gd: "-14", pts: 0 }
+        // League Standings Data (24 Teams)
+        const standingsData = [
+            { rank: 1, name: "تاتنهام", p: 7, w: 6, d: 1, l: 0, gd: 14, pts: 19 },
+            { rank: 2, name: "آرسنال", p: 7, w: 6, d: 0, l: 1, gd: 12, pts: 18 },
+            { rank: 3, name: "اینتر میلان", p: 7, w: 5, d: 2, l: 0, gd: 11, pts: 17 },
+            { rank: 4, name: "گالاتاسرای", p: 7, w: 5, d: 1, l: 1, gd: 8, pts: 16 },
+            { rank: 5, name: "آتالانتا", p: 7, w: 5, d: 0, l: 2, gd: 7, pts: 15 },
+            { rank: 6, name: "یوونتوس", p: 7, w: 4, d: 2, l: 1, gd: 6, pts: 14 },
+            { rank: 7, name: "رئال مادرید", p: 7, w: 4, d: 1, l: 2, gd: 5, pts: 13 },
+            { rank: 8, name: "فنرباغچه", p: 7, w: 4, d: 1, l: 2, gd: 4, pts: 13 },
+            { rank: 9, name: "دورتموند", p: 7, w: 4, d: 0, l: 3, gd: 3, pts: 12 },
+            { rank: 10, name: "پورتو", p: 7, w: 3, d: 2, l: 2, gd: 2, pts: 11 },
+            { rank: 11, name: "منچسترسیتی", p: 7, w: 3, d: 2, l: 2, gd: 2, pts: 11 },
+            { rank: 12, name: "بایرن مونیخ", p: 7, w: 3, d: 1, l: 3, gd: 1, pts: 10 },
+            { rank: 13, name: "نیوکاسل", p: 7, w: 3, d: 1, l: 3, gd: 0, pts: 10 },
+            { rank: 14, name: "بایر لورکوزن", p: 7, w: 2, d: 3, l: 2, gd: -1, pts: 9 },
+            { rank: 15, name: "بارسلونا", p: 7, w: 2, d: 2, l: 3, gd: -2, pts: 8 },
+            { rank: 16, name: "آث میلان", p: 7, w: 2, d: 1, l: 4, gd: -4, pts: 7 },
+            { rank: 17, name: "استون ویلا", p: 7, w: 2, d: 0, l: 5, gd: -5, pts: 6 },
+            { rank: 18, name: "منچستریونایتد", p: 7, w: 1, d: 2, l: 4, gd: -6, pts: 5 },
+            { rank: 19, name: "لیورپول", p: 7, w: 1, d: 1, l: 5, gd: -7, pts: 4 },
+            { rank: 20, name: "آ اس رم", p: 7, w: 1, d: 1, l: 5, gd: -8, pts: 4 },
+            { rank: 21, name: "چلسی", p: 7, w: 1, d: 0, l: 6, gd: -9, pts: 3 },
+            { rank: 22, name: "اتلتیکو مادرید", p: 7, w: 0, d: 2, l: 5, gd: -10, pts: 2 },
+            { rank: 23, name: "ناپولی", p: 7, w: 0, d: 1, l: 6, gd: -12, pts: 1 },
+            { rank: 24, name: "پاری‌سن‌ژرمن", p: 7, w: 0, d: 0, l: 7, gd: -16, pts: 0 }
         ];
 
-        // ۲. داده‌های ۱۰ شعبه
-        const branches = [
-            { id: 1, name: "ایتالیا - انگلیس", icon: "fa-shield-halved", tag: "شعبه ۱", items: [
-                "ترکیب لیگ‌های معتبر سری آ و پریمیرلیگ",
-                "سیستم برگزاری هفتگی و رفت و برگشت",
-                "نقل و انتقالات مستقیم با سقف بودجه",
-                "حضور برترین مدیران تاکتیکی اتحاد",
-                "پوشش زنده مسابقات و حواشی",
-                "کارت زرد و قرمز و مصدومیت هفتگی",
-                "پاداش قهرمانی ارزی و امتیازی",
-                "جام حذفی مشترک بین دو کشور",
-                "ثبت دقیق کلین شیت‌ها و گلزنان برتر"
-            ]},
-            { id: 2, name: "چمپیونز لیگ", icon: "fa-trophy", tag: "شعبه ۲", items: [
-                "فرمت ۲۴ تیمی شبیه به لیگ قهرمانان اروپا",
-                "رقابت سطح اول و بالاترین ضریب رنکینگ",
-                "جوایز ویژه برای تیم‌های صعودکننده",
-                "مرحله حذفی با بازی‌های رفت و برگشت مهیج",
-                "پخش خلاصه عملکرد بازیکنان",
-                "سیدبندی اختصاصی بر اساس رنکینگ اتحاد",
-                "فینال تک‌بازی در زمین بی‌طرف",
-                "پاداش میلیونی برای قهرمان فصل",
-                "ثبت رکوردها در تالار مشاهیر چمپیونزلیگ"
-            ]},
-            { id: 3, name: "نخبگان آسیا", icon: "fa-dragon", tag: "شعبه ۳", items: [
-                "ویژه تیم‌های قدرتمند آسیا و خاورمیانه",
-                "فرمت شبیه‌سازی لیگ نخبگان AFC",
-                "حضور لژیونرهای سرشناس آسیایی",
-                "قوانین کنترل سقف قرارداد بازیکنان خارجی",
-                "پاداش صعود به مراحل نهایی",
-                "رقابت‌های فشرده منطقه‌ای",
-                "کاپ قهرمانی اختصاصی آسیا",
-                "تاثیر مستقیم در رنکینگ بین‌المللی مدیران",
-                "داوری و نظارت دقیق توسط ناظران ارشد"
-            ]},
-            { id: 4, name: "لیگ ایران", icon: "fa-flag", tag: "شعبه ۴", items: [
-                "فرمت جدید ۱۶ تیمی و کاملاً رقابتی",
-                "پوشش لیگ خلیج فارس و افزودن لیگ آزادگان",
-                "تاریخچه ۹ فصل قهرمانی باشکوه",
-                "جام حذفی و سوپرکاپ اختصاصی ایران",
-                "سیستم ریتینگ دقیق برای تمام بازیکنان ایرانی",
-                "پنجره نقل و انتقالات پر سر و صدا",
-                "بررسی اعتراضات داوری در کمیته انضباطی",
-                "حضور تیم‌های پرطرفدار پایتخت و شهرستانی",
-                "پاداش ویژه برای قهرمان دوگانه و سه‌گانه"
-            ]},
-            { id: 5, name: "کیهان موبایل", icon: "fa-mobile-screen-button", tag: "شعبه ۵", items: [
-                "به زودی با فرمت و ساختاری کاملاً متفاوت",
-                "تجربه روان و مناسب بازیکنان نسخه موبایل",
-                "سیستم امتیازدهی سریع و جذاب",
-                "مسابقات حذفی سریع‌السیر (کوئیک کاپ)",
-                "پاداش‌های هفتگی نقدی و اعتباری",
-                "لابی‌های آنلاین بدون لگ و هماهنگ",
-                "مناسب برای بازیکنان فوتبال موبایلی",
-                "جدول رده‌بندی زنده و پویا",
-                "پشتیبانی ۲۴ ساعته ادمین‌ها در شعبات"
-            ]},
-            { id: 6, name: "پنالتی جهتی", icon: "fa-crosshairs", tag: "شعبه ۶", items: [
-                "مسابقات مهیج و سرعتی پنالتی جهتی",
-                "تمرکز بر هوش، حدس مسیر و روانشناسی حریف",
-                "تورنمنت‌های تک‌حذفی روزانه",
-                "پاداش‌های نقدی فوری پس از هر برد",
-                "سقف زمان کوتاه برای ارسال جهت ضربه",
-                "جدول تخصصی پنالتی‌زنان برتر اتحاد",
-                "سیستم داوری خودکار و کاملاً شفاف",
-                "مسابقات تیمی و کلن‌وار پنالتی",
-                "هیجان بالا در ضربات مرگ ناگهانی"
-            ]},
-            { id: 7, name: "کشتی کج (WWE)", icon: "fa-hand-fist", tag: "شعبه ۷", items: [
-                "شبیه‌سازی کامل شوهای Raw، SmackDown و NXT",
-                "پی‌پرویوهای ماهانه شامل رویال رامبل و رسلمانیا",
-                "سیستم فیودسازی و کل‌کل‌های داستانی جذاب",
-                "کمربندهای جهانی، بین‌قاره‌ای و تگ تیم",
-                "داوری سناریومحور و کامپکت",
-                "مدیریت سوپراستارها و ارتقای محبوبیت",
-                "مسابقات قفس، نردبان و هل این ا سل",
-                "پاداش ویژه برای طولانی‌ترین دوران قهرمانی",
-                "آرشیو کامل تاریخچه قهرمانان کمربندها"
-            ]},
-            { id: 8, name: "فیفا ۲۷", icon: "fa-gamepad", tag: "شعبه ۸", items: [
-                "اختصاصی جدیدترین نسل و آپدیت‌های شبیه‌سازی",
-                "تنظیمات واقع‌گرایانه و تاکتیک‌های مدرن",
-                "مسابقات آلتیمیت و کریر مد اختصاصی",
-                "استریم زنده دیدارهای مهم با گزارشگر",
-                "کارت‌های ویژه و ارتقای بازیکنان برتر هفته",
-                "رقابت با اسکوادهای هم‌سطح و بالانس‌شده",
-                "جوایز نقدی برای قهرمان لیگ برتر فیفا",
-                "قوانین ضد گیم‌پلی سمی و اتلاف وقت",
-                "آمار کامل شوت، مالکیت و ایکس‌جی (xG)"
-            ]},
-            { id: 9, name: "تورنمنت آنلاین موبایل", icon: "fa-network-wired", tag: "شعبه ۹", items: [
-                "بستری برای برگزاری کاپ‌های دوستانه و آزاد",
-                "شرایط ثبت نام آسان برای اعضای جدید کانال",
-                "برگزاری در ساعات مختلف شبانه‌روز",
-                "پشتیبانی از پلتفرم‌های eFootball و FC Mobile",
-                "لینک‌دهی خودکار نتایج در وب‌سایت",
-                "ثبت کلین‌شیت‌ها و آقای گل تورنمنت",
-                "پاداش شارژ و بن کدهای درون‌برنامه‌ای",
-                "جایزه ویژه برای پدیده و بهترین خط حمله",
-                "کارت دعوت به لیگ‌های برتر برای فینالیست‌ها"
-            ]},
-            { id: 10, name: "کلاسیک", icon: "fa-hourglass-half", tag: "شعبه ۱۰", items: [
-                "نوستالژی خالص با تیم‌ها و ستاره‌های ادوار گذشته",
-                "حضور اسطوره‌هایی چون مارادونا، زیدان، رونالدو نازاریو و پله",
-                "قوانین فوتبال کلاسیک بدون کمک‌داور ویدئویی",
-                "لباس‌ها و کیت‌های تاریخی باشگاه‌ها",
-                "تورنمنت جام جهانی ۱۹۹۸ و ۲۰۰۶ بازسازی‌شده",
-                "سیستم ریتینگ اختصاصی عصر طلایی فوتبال",
-                "کل‌کل‌های تاریخی بین هواداران تیم‌های قدیمی",
-                "اهدای کاپ یادبود طلایی به قهرمان کلاسیک",
-                "بررسی بازی‌های تاریخی فوتبال جهان"
-            ]}
-        ];
+        function renderStandings() {
+            const tbody = document.getElementById('standings-body');
+            tbody.innerHTML = standingsData.map(t => {
+                let badgeClass = '';
+                if(t.rank === 1) badgeClass = 'top-1';
+                else if(t.rank === 2) badgeClass = 'top-2';
+                else if(t.rank === 3) badgeClass = 'top-3';
 
-        // ۳. داده‌های قهرمانان لیگ ایران (فصل ۱ تا ۹)
-        const championsHistory = [
-            { season: "فصل ۱", type: "لیگ برتر", team: "پرسپولیس", manager: "🥇 امیر اتحاد" },
-            { season: "فصل ۱", type: "جام حذفی", team: "استقلال", manager: "🥇 علیرضا" },
-            { season: "فصل ۲", type: "لیگ برتر", team: "سپاهان", manager: "🥇 مهدی" },
-            { season: "فصل ۲", type: "سوپرکاپ", team: "پرسپولیس", manager: "🥇 امیر اتحاد" },
-            { season: "فصل ۳", type: "لیگ برتر", team: "تراکتور", manager: "🥇 رضا تیراختور" },
-            { season: "فصل ۴", type: "لیگ برتر", team: "استقلال", manager: "🥇 سجاد آبی" },
-            { season: "فصل ۵", type: "لیگ برتر", team: "فولاد", manager: "🥇 کارن" },
-            { season: "فصل ۶", type: "لیگ برتر", team: "پرسپولیس", manager: "🥇 امیر اتحاد" },
-            { season: "فصل ۷", type: "لیگ برتر", team: "ملوان", manager: "🥇 آرمین قوی سپید" },
-            { season: "فصل ۸", type: "لیگ برتر", team: "گل گهر", manager: "🥇 متین سیرجان" },
-            { season: "فصل ۹", type: "لیگ برتر", team: "سپاهان", manager: "🥇 پارسا طلایی" }
-        ];
-
-        // ۴. داده‌های نمونه رنکینگ برترین‌های اتحاد
-        const rankingUsers = [
-            { rank: 1, name: "امیر اتحاد", gold: 14, silver: 8, bronze: 5, score: 320 },
-            { rank: 2, name: "رضا تاکتیک", gold: 11, silver: 9, bronze: 4, score: 285 },
-            { rank: 3, name: "مهدی کینگ", gold: 9, silver: 7, bronze: 6, score: 240 },
-            { rank: 4, name: "علیرضا", gold: 8, silver: 5, bronze: 7, score: 210 },
-            { rank: 5, name: "سجاد آریا", gold: 7, silver: 6, bronze: 4, score: 195 },
-            { rank: 6, name: "کارن پی‌اس", gold: 6, silver: 8, bronze: 3, score: 180 },
-            { rank: 7, name: "پارسا زئوس", gold: 6, silver: 4, bronze: 5, score: 165 },
-            { rank: 8, name: "آرمین گاد", gold: 5, silver: 6, bronze: 6, score: 155 },
-            { rank: 9, name: "متین شوت زن", gold: 5, silver: 3, bronze: 4, score: 135 },
-            { rank: 10, name: "عرفان عقاب", gold: 4, silver: 5, bronze: 8, score: 130 }
-        ];
-
-        // تابع رندر جدول ۲۴ تیمی
-        function renderLeagueTable() {
-            const tbody = document.getElementById('tableBody');
-            tbody.innerHTML = '';
-            leagueTeams.forEach((t, i) => {
-                const rankClass = i === 0 ? 'rank-1' : i === 1 ? 'rank-2' : i === 2 ? 'rank-3' : '';
-                tbody.innerHTML += `
+                return `
                     <tr>
-                        <td><span class="rank-badge ${rankClass}">${i + 1}</span></td>
-                        <td class="team-name">${t.name}</td>
+                        <td><span class="rank-badge ${badgeClass}">${t.rank}</span></td>
+                        <td class="team-cell">${t.name}</td>
                         <td>${t.p}</td>
-                        <td style="color:var(--accent-green);">${t.w}</td>
+                        <td>${t.w}</td>
                         <td>${t.d}</td>
-                        <td style="color:var(--accent-red);">${t.l}</td>
-                        <td dir="ltr">${t.gd}</td>
-                        <td><strong>${t.pts}</strong></td>
+                        <td>${t.l}</td>
+                        <td dir="ltr">${t.gd > 0 ? '+'+t.gd : t.gd}</td>
+                        <td style="font-weight: bold; color: var(--neon-green);">${t.pts}</td>
                     </tr>
                 `;
-            });
+            }).join('');
         }
 
-        // تابع رندر شعبات
+        // Branches Data
+        const branchesData = [
+            { name: "ایتالیا - انگلیس", icon: "fa-shield-halved", desc: "شعبه رقابت‌های هیجان‌انگیز تیم‌های لیگ جزیره و سری‌آ با قوانین و سیستم مچینگ اختصاصی." },
+            { name: "چمپیونز لیگ", icon: "fa-trophy", desc: "معتبرترین تورنمنت اتحاد با فرمت ۲۴ تیمی و مراحل حذفی فوق حساس و جذاب." },
+            { name: "نخبگان آسیا", icon: "fa-earth-asia", desc: "نبرد بهترین پلیرها در سطح تیم‌های قدرتمند آسیایی با جوایز ویژه." },
+            { name: "لیگ ایران", icon: "fa-flag", desc: "شعبه ۱۶ تیمی لیگ خلیج فارس به همراه سیستم صعود و سقوط لیگ آزادگان، جام حذفی و سوپرکاپ." },
+            { name: "کیهان موبایل", icon: "fa-mobile-screen", desc: "تورنمنت‌های اختصاصی و سرعتی موبایل با فرمت جدید و جذاب." },
+            { name: "پنالتی جهتی", icon: "fa-bullseye", desc: "مسابقات هیجانی و مهارتی ضربات پنالتی جهتی با سرعت تصمیم‌گیری بالا." },
+            { name: "کشتی کج", icon: "fa-hand-fist", desc: "شعبه رقابت‌های اختصاصی WWE و نبردهای جذاب شبیه‌سازی‌شده." },
+            { name: "فیفا ۲۷", icon: "fa-gamepad", desc: "مسابقات پیشرفته کنسولی و شبیه‌سازهای نسل جدید فوتبال." },
+            { name: "تورنمنت آنلاین موبایل", icon: "fa-network-wired", desc: "جام‌های حذفی و چندجانبه آنلاین موبایلی با اهدای جوایز نقدی." },
+            { name: "کلاسیک", icon: "fa-crown", desc: "رقابت تیم‌های نوستالژیک و اسطوره‌های تاریخ فوتبال در لیگ اتحاد." }
+        ];
+
         function renderBranches() {
-            const grid = document.getElementById('branchesGrid');
-            grid.innerHTML = '';
-            branches.forEach(b => {
-                grid.innerHTML += `
-                    <div class="branch-card" onclick="openBranchModal(${b.id})">
-                        <i class="fa-solid ${b.icon} branch-icon"></i>
-                        <div class="branch-title">${b.name}</div>
-                        <span class="branch-tag">${b.tag}</span>
-                    </div>
-                `;
-            });
+            const container = document.getElementById('branches-container');
+            container.innerHTML = branchesData.map((b, index) => `
+                <div class="branch-card" onclick="openModal(${index})">
+                    <div class="branch-icon"><i class="fa-solid ${b.icon}"></i></div>
+                    <div class="branch-name">${b.name}</div>
+                    <div class="branch-badge">مشاهده مشخصات</div>
+                </div>
+            `).join('');
         }
 
-        // تابع رندر تالار افتخارات
-        function renderHallOfFame() {
-            // رنکینگ
-            const rBody = document.getElementById('rankingTableBody');
-            rBody.innerHTML = '';
-            rankingUsers.forEach(u => {
-                rBody.innerHTML += `
-                    <tr>
-                        <td><span class="rank-badge ${u.rank <= 3 ? 'rank-' + u.rank : ''}">${u.rank}</span></td>
-                        <td class="team-name">${u.name}</td>
-                        <td>${u.gold}</td>
-                        <td>${u.silver}</td>
-                        <td>${u.bronze}</td>
-                        <td style="color:var(--accent-gold); font-weight:700;">${u.score}</td>
-                    </tr>
-                `;
-            });
-
-            // قهرمانان فصول
-            const cBody = document.getElementById('championsTableBody');
-            cBody.innerHTML = '';
-            championsHistory.forEach(c => {
-                cBody.innerHTML += `
-                    <tr>
-                        <td><strong>${c.season}</strong></td>
-                        <td><span class="branch-tag">${c.type}</span></td>
-                        <td style="font-weight:700; color:#fff;">${c.team}</td>
-                        <td style="color:var(--accent-green);">${c.manager}</td>
-                    </tr>
-                `;
-            });
-        }
-
-        // تب‌ها
-        function switchTab(tabId, btn) {
-            document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            document.getElementById(tabId).classList.add('active');
-            btn.classList.add('active');
-        }
-
-        // مودال جزئیات شعبه
-        function openBranchModal(id) {
-            const branch = branches.find(b => b.id === id);
-            if (!branch) return;
-            document.getElementById('mTitle').innerHTML = `<i class="fa-solid ${branch.icon}"></i> <span>شعبه ${branch.name}</span>`;
-            const mList = document.getElementById('mList');
-            mList.innerHTML = '';
-            branch.items.forEach(item => {
-                mList.innerHTML += `<li>${item}</li>`;
-            });
-            document.getElementById('branchModal').style.display = 'flex';
+        function openModal(index) {
+            const b = branchesData[index];
+            document.getElementById('modal-icon').innerHTML = `<i class="fa-solid ${b.icon}"></i>`;
+            document.getElementById('modal-title').innerText = b.name;
+            document.getElementById('modal-desc').innerText = b.desc;
+            document.getElementById('branch-modal').classList.add('open');
         }
 
         function closeModal() {
-            document.getElementById('branchModal').style.display = 'none';
+            document.getElementById('branch-modal').classList.remove('open');
         }
 
-        window.onclick = function(e) {
-            if (e.target == document.getElementById('branchModal')) {
-                closeModal();
+        // Hall of Fame - Ranking Data (109 Players)
+        const rankingData = [
+            { rank: 1, name: "Amir Pari", g: 58, s: 53, b: 32 },
+            { rank: 2, name: "Yasin", g: 57, s: 54, b: 25 },
+            { rank: 3, name: "sina", g: 57, s: 50, b: 27 },
+            { rank: 4, name: "Mahan", g: 49, s: 49, b: 24 },
+            { rank: 5, name: "Dani", g: 46, s: 51, b: 29 },
+            { rank: 6, name: "A.Gh", g: 46, s: 43, b: 34 },
+            { rank: 7, name: "Ammd", g: 44, s: 40, b: 18 },
+            { rank: 8, name: "AmirEtihad", g: 43, s: 27, b: 11 },
+            { rank: 9, name: "aboli", g: 35, s: 39, b: 17 },
+            { rank: 10, name: "Abol Safi", g: 33, s: 36, b: 11 },
+            { rank: 11, name: "Ashi", g: 32, s: 27, b: 9 },
+            { rank: 12, name: "meti", g: 32, s: 23, b: 15 },
+            { rank: 13, name: "Mosi", g: 27, s: 28, b: 10 },
+            { rank: 14, name: "iliya", g: 27, s: 15, b: 12 },
+            { rank: 15, name: "Ashkan", g: 26, s: 28, b: 14 },
+            { rank: 16, name: "Mahdi FF", g: 25, s: 23, b: 8 },
+            { rank: 17, name: "Glenn", g: 24, s: 38, b: 15 },
+            { rank: 18, name: "Feri", g: 20, s: 15, b: 15 },
+            { rank: 19, name: "etemadi", g: 17, s: 14, b: 7 },
+            { rank: 20, name: "amirAP", g: 16, s: 25, b: 8 },
+            { rank: 21, name: "Arya", g: 16, s: 13, b: 9 },
+            { rank: 22, name: "AliDol", g: 15, s: 9, b: 8 },
+            { rank: 23, name: "Ali Sandro", g: 14, s: 25, b: 6 },
+            { rank: 24, name: "MamadTaha", g: 13, s: 9, b: 8 },
+            { rank: 25, name: "Amir junior", g: 12, s: 19, b: 1 },
+            { rank: 26, name: "Arin", g: 12, s: 7, b: 5 },
+            { rank: 27, name: "AmirMahdi", g: 11, s: 10, b: 3 },
+            { rank: 28, name: "Sobi", g: 11, s: 9, b: 3 },
+            { rank: 29, name: "Mr amir", g: 11, s: 4, b: 8 },
+            { rank: 30, name: "haland", g: 10, s: 7, b: 7 },
+            { rank: 31, name: "MahdiTornado", g: 10, s: 15, b: 9 },
+            { rank: 32, name: "Mohammad", g: 9, s: 10, b: 6 },
+            { rank: 33, name: "abol Teo", g: 8, s: 12, b: 10 },
+            { rank: 34, name: "Arash", g: 8, s: 9, b: 2 },
+            { rank: 35, name: "David", g: 8, s: 7, b: 5 },
+            { rank: 36, name: "M A H D I", g: 7, s: 10, b: 7 },
+            { rank: 37, name: "Farsad", g: 7, s: 10, b: 3 },
+            { rank: 38, name: "Salar", g: 7, s: 7, b: 3 },
+            { rank: 39, name: "King", g: 6, s: 2, b: 1 },
+            { rank: 40, name: "amir♕", g: 5, s: 6, b: 1 },
+            { rank: 41, name: "sepi", g: 5, s: 2, b: 4 },
+            { rank: 42, name: "Mamad", g: 4, s: 9, b: 1 },
+            { rank: 43, name: "mahdi.", g: 4, s: 5, b: 6 },
+            { rank: 44, name: "Tami", g: 4, s: 3, b: 0 },
+            { rank: 45, name: "Alireza zizo", g: 4, s: 1, b: 3 },
+            { rank: 46, name: "sobhanS", g: 4, s: 1, b: 0 },
+            { rank: 47, name: "Reza", g: 3, s: 8, b: 3 },
+            { rank: 48, name: "ABolDark", g: 3, s: 7, b: 4 },
+            { rank: 49, name: "yazdan", g: 3, s: 2, b: 0 },
+            { rank: 50, name: "AmirAli Goli", g: 3, s: 1, b: 0 },
+            { rank: 51, name: "Dr Rastin", g: 3, s: 0, b: 0 },
+            { rank: 52, name: "Farhad", g: 2, s: 3, b: 0 },
+            { rank: 53, name: "AliKroos", g: 2, s: 3, b: 0 },
+            { rank: 54, name: "Aga Amir", g: 2, s: 2, b: 4 },
+            { rank: 55, name: "joleini", g: 2, s: 2, b: 1 },
+            { rank: 56, name: "Arshia", g: 2, s: 1, b: 1 },
+            { rank: 57, name: "Mohammad A3li", g: 2, s: 1, b: 1 },
+            { rank: 58, name: "Mamad Tofan", g: 2, s: 1, b: 0 },
+            { rank: 59, name: "Couto", g: 2, s: 1, b: 0 },
+            { rank: 60, name: "Arian", g: 2, s: 0, b: 1 },
+            { rank: 61, name: "AliMil", g: 2, s: 0, b: 1 },
+            { rank: 62, name: "reza", g: 2, s: 0, b: 1 },
+            { rank: 63, name: "JUDE", g: 2, s: 0, b: 0 },
+            { rank: 64, name: "Yousef", g: 1, s: 4, b: 0 },
+            { rank: 65, name: "Aarshia Gahedi", g: 1, s: 2, b: 0 },
+            { rank: 66, name: "Hamid", g: 1, s: 1, b: 2 },
+            { rank: 67, name: "mmd", g: 1, s: 1, b: 0 },
+            { rank: 68, name: "Parham", g: 1, s: 1, b: 0 },
+            { rank: 69, name: "Amirali junior", g: 1, s: 1, b: 0 },
+            { rank: 70, name: "kivan", g: 1, s: 0, b: 0 },
+            { rank: 71, name: "Sobhan poyol", g: 1, s: 0, b: 0 },
+            { rank: 72, name: "erfan", g: 1, s: 0, b: 0 },
+            { rank: 73, name: "Amin", g: 1, s: 0, b: 0 },
+            { rank: 74, name: "morfin", g: 1, s: 0, b: 0 },
+            { rank: 75, name: "Ali Fernandes", g: 1, s: 0, b: 0 },
+            { rank: 76, name: "kileesa", g: 1, s: 0, b: 0 },
+            { rank: 77, name: "Javad", g: 1, s: 0, b: 0 },
+            { rank: 78, name: "Alirad", g: 1, s: 0, b: 0 },
+            { rank: 79, name: "Abassafi", g: 0, s: 3, b: 1 },
+            { rank: 80, name: "hesam", g: 0, s: 2, b: 2 },
+            { rank: 81, name: "aronaldo", g: 0, s: 2, b: 0 },
+            { rank: 82, name: "Masharipf", g: 0, s: 2, b: 0 },
+            { rank: 83, name: "Reza AM", g: 0, s: 2, b: 0 },
+            { rank: 84, name: "Alireza17", g: 0, s: 1, b: 1 },
+            { rank: 85, name: "Amirali²", g: 0, s: 1, b: 1 },
+            { rank: 86, name: "Parsa", g: 0, s: 1, b: 1 },
+            { rank: 87, name: "h.junior", g: 0, s: 1, b: 0 },
+            { rank: 88, name: "Alireza..", g: 0, s: 1, b: 0 },
+            { rank: 89, name: "A.J.7", g: 0, s: 1, b: 0 },
+            { rank: 90, name: "ervin", g: 0, s: 1, b: 0 },
+            { rank: 91, name: "Ronaldo", g: 0, s: 1, b: 0 },
+            { rank: 92, name: "oiop", g: 0, s: 1, b: 0 },
+            { rank: 93, name: "Farhan", g: 0, s: 1, b: 0 },
+            { rank: 94, name: "amirOrg", g: 0, s: 1, b: 0 },
+            { rank: 95, name: "Taison", g: 0, s: 1, b: 0 },
+            { rank: 96, name: "reza.za", g: 0, s: 1, b: 0 },
+            { rank: 97, name: "taha", g: 0, s: 1, b: 0 },
+            { rank: 98, name: "Aa.", g: 0, s: 0, b: 1 },
+            { rank: 99, name: "Nagi", g: 0, s: 0, b: 1 },
+            { rank: 100, name: "ZDX", g: 0, s: 0, b: 1 },
+            { rank: 101, name: "sas", g: 0, s: 0, b: 1 },
+            { rank: 102, name: "MmdBarCa", g: 0, s: 0, b: 1 },
+            { rank: 103, name: "TaHaCoM", g: 0, s: 0, b: 1 },
+            { rank: 104, name: "amir", g: 0, s: 0, b: 1 },
+            { rank: 105, name: "verati", g: 0, s: 0, b: 1 },
+            { rank: 106, name: "alberti", g: 0, s: 0, b: 1 },
+            { rank: 107, name: "Abozar", g: 0, s: 0, b: 1 },
+            { rank: 108, name: "Messi", g: 0, s: 0, b: 1 },
+            { rank: 109, name: "Victor", g: 0, s: 0, b: 1 }
+        ];
+
+        function renderRanking(dataToRender = rankingData) {
+            const tbody = document.getElementById('ranking-body');
+            tbody.innerHTML = dataToRender.map(p => `
+                <tr>
+                    <td><span class="rank-badge">${p.rank}</span></td>
+                    <td class="team-cell" style="color: #fff; font-weight: bold;">${p.name}</td>
+                    <td style="color: var(--gold); font-weight: bold;">${p.g}</td>
+                    <td style="color: var(--silver); font-weight: bold;">${p.s}</td>
+                    <td style="color: var(--bronze); font-weight: bold;">${p.b}</td>
+                    <td style="color: var(--neon-green); font-weight: bold;">${p.g + p.s + p.b}</td>
+                </tr>
+            `).join('');
+        }
+
+        function filterRanking() {
+            const query = document.getElementById('ranking-search').value.toLowerCase();
+            const filtered = rankingData.filter(p => p.name.toLowerCase().includes(query));
+            renderRanking(filtered);
+        }
+
+        // Seasons Champions Data (Iran League)
+        const seasonsData = [
+            { season: "فصل ۱", league: "سپاهان 🟡", cup: "تراکتور 🔴", supercup: "سپاهان 🟡" },
+            { season: "فصل ۲", league: "استقلال 🔵", cup: "گل‌گهر 🔷", supercup: "گل‌گهر 🔷" },
+            { season: "فصل ۳", league: "تراکتور 🔴", cup: "تراکتور 🔴", supercup: "تراکتور 🔴" },
+            { season: "فصل ۴", league: "نساجی 🟣", cup: "ملوان ⚪", supercup: "گل‌گهر 🔹" },
+            { season: "فصل ۵", league: "استقلال 🔵", cup: "گل‌گهر 🔹", supercup: "استقلال 🔵" },
+            { season: "فصل ۶", league: "استقلال 🔵", cup: "تراکتور 🔴", supercup: "تراکتور 🔴" },
+            { season: "فصل ۷", league: "پرسپولیس 🔴", cup: "استقلال 🔵", supercup: "استقلال 🔵" },
+            { season: "فصل ۸", league: "پرسپولیس ❤️", cup: "چادرملو 🔘", supercup: "پرسپولیس ❤️" },
+            { season: "فصل ۹", league: "فولاد 🟠", cup: "گل‌گهر 🔹", supercup: "گل‌گهر 🔹" }
+        ];
+
+        function renderSeasons() {
+            const container = document.getElementById('seasons-container');
+            container.innerHTML = seasonsData.map(s => `
+                <div class="season-card">
+                    <div class="season-title">${s.season}</div>
+                    <div class="trophy-row">
+                        <span class="trophy-name">🏆 قهرمان لیگ:</span>
+                        <span class="trophy-winner">${s.league}</span>
+                    </div>
+                    <div class="trophy-row">
+                        <span class="trophy-name">🥇 جام حذفی:</span>
+                        <span class="trophy-winner">${s.cup}</span>
+                    </div>
+                    <div class="trophy-row">
+                        <span class="trophy-name">⚡ سوپرکاپ:</span>
+                        <span class="trophy-winner">${s.supercup}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            if (tab === 'ranking') {
+                document.querySelectorAll('.tab-btn')[0].classList.add('active');
+                document.getElementById('tab-ranking').style.display = 'block';
+                document.getElementById('tab-seasons').style.display = 'none';
+            } else {
+                document.querySelectorAll('.tab-btn')[1].classList.add('active');
+                document.getElementById('tab-ranking').style.display = 'none';
+                document.getElementById('tab-seasons').style.display = 'block';
             }
         }
 
-        // سیستم رای دهی زنده
-        function vote(opt) {
-            alert("رأی شما با موفقیت در نظرسنجی قهرمان لیگ اتحاد ثبت شد!");
+        function votePoll(element) {
+            document.querySelectorAll('.poll-option').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
         }
 
-        // بارگذاری اولیه
-        window.onload = function() {
-            renderLeagueTable();
+        // Init
+        window.onload = () => {
+            renderStandings();
             renderBranches();
-            renderHallOfFame();
+            renderRanking();
+            renderSeasons();
         };
     </script>
 </body>
