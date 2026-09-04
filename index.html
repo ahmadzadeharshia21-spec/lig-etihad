@@ -511,52 +511,64 @@
             border-top: 1px solid rgba(255, 255, 255, 0.05);
             margin-top: 40px;
         }
-                footer {
-            text-align: center;
-            padding: 24px;
-            color: var(--text-secondary);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 40px;
-        }
+                /* استایل اصلی نوار خبر */
+.breaking-news {
+    background: rgba(0, 255, 127, 0.1); /* پس‌زمینه بسیار ملایم سبز نئون */
+    border-bottom: 1px solid #00ff7f;
+    overflow: hidden; /* برای اینکه متن وقتی از کادر خارج میشه دیده نشه */
+    white-space: nowrap; /* جلوگیری از شکستن متن به خط بعد */
+    display: flex;
+    align-items: center;
+    height: 40px;
+    position: relative;
+}
 
-        /* Breaking News Ticker */
-        .breaking-news {
-            display: flex;
-            align-items: center;
-            background: rgba(0, 255, 170, 0.08);
-            border: 1px solid var(--neon-green);
-            padding: 10px 20px;
-            margin: 20px auto;
-            max-width: 1250px;
-            border-radius: 12px;
-            gap: 15px;
-            color: #fff;
-        }
+/* استایل نشان (Badge) که ثابت می‌مونه */
+.bn-badge {
+    background: #00ff7f;
+    color: #000;
+    padding: 2px 10px;
+    font-size: 12px;
+    font-weight: bold;
+    border-radius: 4px;
+    margin-left: 15px;
+    z-index: 10; /* برای اینکه روی متن حرکت کننده قرار بگیره */
+    box-shadow: 0 0 10px #00ff7f;
+}
 
-        .bn-badge {
-            background: var(--neon-green);
-            color: #0b0f19;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-weight: bold;
-            font-size: 0.8rem;
-            white-space: nowrap;
-        }
+/* ظرف نگهدارنده متن متحرک */
+.bn-ticker-wrapper {
+    display: inline-block;
+    padding-left: 100%; /* شروع حرکت از خارج از کادر سمت راست */
+    animation: ticker 20s linear infinite; /* نام انیمیشن و سرعت */
+}
 
-        .bn-text {
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
+.bn-text {
+    color: #fff;
+    font-size: 14px;
+    padding-left: 50px; /* فاصله بین متن و لبه */
+}
+
+/* تعریف انیمیشن حرکت */
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
 
     </style>
 </head>
 <body>
         <!-- Breaking News Bar -->
-    <div class="breaking-news">
-        <span class="bn-badge">⚡ خبر فوری</span>
-        <span class="bn-text">🏆 نیوکاسل فاتح فصل ۳۰ چمپیونزلیگ</span>
+<div class="breaking-news">
+    <span class="bn-badge">⚡ خبر فوری</span>
+    <div class="bn-ticker-wrapper">
+        <span class="bn-text">🏆 نیوکاسل فاتح فصل ۳۰ چمپیونزلیگ | 🚀 لیگ اتحاد در حال گسترش است | 🔥 اخبار جدید را دنبال کنید</span>
     </div>
+</div>
 
     <!-- Header / Navigation Menu -->
     <header>
