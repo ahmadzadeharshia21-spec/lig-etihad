@@ -512,47 +512,46 @@
             margin-top: 40px;
         }
         /* ============================================================
-   BREAKING NEWS TICKER (نسخه نهایی - حرکت از چپ به راست)
-   ============================================================ */
+.breaking-news {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 16px;
+    margin: 0;
+    background: #101b18;
+    border-bottom: 1px solid #39ff88;
+    box-shadow: 0 0 12px rgba(57, 255, 136, 0.25);
+    direction: rtl;
+}
 
-/* ============================================================ */
-/* ۱. کانتینر اصلی باید عرضش ۱۰۰٪ باشد و overflow نداشته باشد */
-.bn-ticker-wrapper {
-    width: 100%;
-    overflow: hidden; /* این باعث می‌شود متن خارج از کادر دیده نشود */
-    background: #1a1a1a; /* یا هر رنگ پس‌زمینه‌ای که داری */
+.bn-badge {
+    color: #101b18;
+    background: #39ff88;
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: 700;
     white-space: nowrap;
-    position: relative;
-    height: 40px; /* یا ارتفاعی که در نظر گرفتی */
 }
 
-/* ۲. متن خبر باید خودش را به سمت چپ بکشد */
-.bn-ticker-text {
-    display: inline-block;
-    padding-left: 100%; /* این باعث می‌شود متن از سمت راست کاملاً خارج از کادر شروع شود */
-    animation: ticker 15s linear infinite; /* زمان را تنظیم کن */
-    color: white;
-}
-
-/* ۳. انیمیشن بدون وقفه */
-@keyframes ticker {
-    0% {
-        transform: translate(0, 0);
-    }
-    100% {
-        transform: translate(-100%, 0);
-    }
+.bn-text {
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
     </style>
 </head>
 <body>
-        <!-- Breaking News Ticker -->
-<div class="bn-ticker-wrapper">
-    <div class="bn-ticker-text">
-        📢 خبر فوری: قهرمانی نیوکاسل در فصل ۳۰ چمپیونزلیگ - ۸۰۰ هزار تومان جایزه ویژه برای قهرمان فصل جدید در انتظار شماست!
+        
+    <!-- Breaking News Bar -->
+    <div class="breaking-news">
+        <span class="bn-badge">⚡ خبر فوری</span>
+        <span class="bn-text">🏆 نیوکاسل فاتح فصل ۳۰ چمپیونزلیگ</span>
     </div>
-</div>
+
+    <!-- Header / Navigation Menu -->
+    <header>
+
 
     <!-- Header / Navigation Menu -->
     <header>
