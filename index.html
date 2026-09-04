@@ -514,49 +514,35 @@
         /* ============================================================
    BREAKING NEWS TICKER (نسخه نهایی - حرکت از چپ به راست)
    ============================================================ */
+
+/* ============================================================ */
+/* ۱. کانتینر اصلی باید عرضش ۱۰۰٪ باشد و overflow نداشته باشد */
 .bn-ticker-wrapper {
     width: 100%;
-    overflow: hidden; /* برای اینکه متن از کادر بیرون نزند */
-    background: rgba(0, 0, 0, 0.8); /* پس‌زمینه تیره و شیک */
-    border-bottom: 2px solid #00ff00; /* خط سبز نئون پایین نوار */
-    display: flex;
-    align-items: center;
-    height: 40px; /* ارتفاع ثابت */
+    overflow: hidden; /* این باعث می‌شود متن خارج از کادر دیده نشود */
+    background: #1a1a1a; /* یا هر رنگ پس‌زمینه‌ای که داری */
+    white-space: nowrap;
     position: relative;
-    z-index: 100;
+    height: 40px; /* یا ارتفاعی که در نظر گرفتی */
 }
 
+/* ۲. متن خبر باید خودش را به سمت چپ بکشد */
 .bn-ticker-text {
     display: inline-block;
-    white-space: nowrap; /* جلوگیری از شکستن متن به خط بعدی */
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 500;
-    padding-right: 100%; /* متن را به سمت راست هل می‌دهد تا از چپ وارد شود */
-    animation: ticker-left-to-right 15s linear infinite;
+    padding-left: 100%; /* این باعث می‌شود متن از سمت راست کاملاً خارج از کادر شروع شود */
+    animation: ticker 15s linear infinite; /* زمان را تنظیم کن */
+    color: white;
 }
 
-.bn-badge {
-    background: #00ff00; /* رنگ سبز نئون */
-    color: #000; /* متن سیاه برای خوانایی بالا */
-    padding: 2px 10px;
-    border-radius: 4px;
-    font-weight: 900;
-    margin-left: 15px; /* فاصله از متن خبر */
-    font-size: 13px;
-    text-transform: uppercase;
-}
-
-/* انیمیشن حرکت از چپ به راست بدون وقفه */
-@keyframes ticker-left-to-right {
+/* ۳. انیمیشن بدون وقفه */
+@keyframes ticker {
     0% {
-        transform: translateX(-100%); /* شروع از لبه سمت چپِ خارج از کادر */
+        transform: translate(0, 0);
     }
     100% {
-        transform: translateX(100%); /* پایان در لبه سمت راستِ خارج از کادر */
+        transform: translate(-100%, 0);
     }
 }
-/* ============================================================ */
 
     </style>
 </head>
